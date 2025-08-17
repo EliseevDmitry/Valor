@@ -1,0 +1,64 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Icon must end with two \r
+Icon
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Xcode user settings
+xcuserdata/
+
+# Xcode specific
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/package.xcworkspace
+
+# CocoaPods
+# Uncomment the next line if you want to exclude Pods from git (usually recommended)
+# Pods/
+
+# Carthage
+Carthage/Build/
+# Carthage/Checkouts/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# Temporary files
+*.swp
+*.lock
+
+# Others
+*.orig
+*.rej
+*.xcuserstate
+
+# JetBrains IDEs (if you use any)
+.idea/
+*.iml
