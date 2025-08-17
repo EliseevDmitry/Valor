@@ -16,20 +16,22 @@ struct ValorIOSApp: App {
     @StateObject private var router = Router(startAt: .pricesAndDiscounts(.error))
     var body: some Scene {
         WindowGroup {
-            RoutingView()
-                .environmentObject(router)
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification), perform: { _ in
-                    UIPasteboard.general.string?.removeAll()
-                })
-               
+            TestView()
+            
+            //            RoutingView()
+            //                .environmentObject(router)
+            //                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification), perform: { _ in
+            //                    UIPasteboard.general.string?.removeAll()
+            //                })
+            //
+            //        }
+            //        .onChange(of: scenePhase) { newPhase in
+            //            if newPhase == .background {
+            //                removeCopiedID()
+            //                Dependency.shared.imageCacheManager.clear()
+            //            }
+            //        }
         }
-        .onChange(of: scenePhase) { newPhase in
-            if newPhase == .background {
-                removeCopiedID()
-                Dependency.shared.imageCacheManager.clear()
-            }
-        }
-    
     }
     
     private func configureNavigationBarAppearance() {

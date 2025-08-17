@@ -60,10 +60,10 @@ struct ProductCardView: View {
                     .truncationMode(.tail)
                 VStack(alignment: .leading){
                     Text(
-                        LocalizeProductCard.item.rawValue + product.id
+                        LocalizeProductCard.item.rawValue + product.globalSKU
                     )
                     Text(
-                        LocalizeProductCard.item.rawValue + product.vlId
+                        LocalizeProductCard.item.rawValue + product.localSKU
                     )
                 }
                 .frame(height: 38)

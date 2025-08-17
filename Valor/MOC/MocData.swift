@@ -9,6 +9,7 @@ import Foundation
 
 struct MocData {
     static let testProduct = Product(
+        id: 1,
         title: "iPhone 16 Pro Max",
         category: "phones",
         price: 550,

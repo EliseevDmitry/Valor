@@ -11,12 +11,12 @@ final class Dependency {
     static let shared = Dependency()
     
     let imageCacheManager: ImageCacheManager
-    let productManager: IProductManager
+    let productManager: IRemoteProductManager
     let internetManager: IInternetManager
     
     private init(){
         self.imageCacheManager = ImageCacheManager()
-        self.productManager = ProductManager()
+        self.productManager = RemoteProductManager()
         self.internetManager = InternetManager()
     }
 }

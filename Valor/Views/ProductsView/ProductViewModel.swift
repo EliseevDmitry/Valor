@@ -22,14 +22,14 @@ enum PickerSegment: Int {
 }
 
 final class ProductViewModel: ObservableObject {
-    private var productManager: IProductManager
+    private var productManager: IRemoteProductManager
     @Published var products: [Product] = []
     @Published var selectedProduct: Product? = nil
     @Published var showDialog = false
     @Published var showToast = false
     @Published var selectedSegment: PickerSegment
 
-    init(manager: IProductManager, selectedSegment: PickerSegment) {
+    init(manager: IRemoteProductManager, selectedSegment: PickerSegment) {
         self.productManager = manager
         self.selectedSegment = selectedSegment
     }

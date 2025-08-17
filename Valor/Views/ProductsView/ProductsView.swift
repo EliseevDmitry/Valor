@@ -99,16 +99,16 @@ struct ProductsView: View {
     //confirmationDialog UI
     private var copyIDDialog: some View {
         Group{
-            Button(LocalizeProducts.copyItem.rawValue) {
-                if let id = viewModel.selectedProduct?.id {
-                    viewModel.copyID(id: id)
-                }
-            }
-            Button(LocalizeProducts.copyVlItem.rawValue) {
-                if let vlId = viewModel.selectedProduct?.vlId {
-                    viewModel.copyID(id: vlId)
-                }
-            }
+//            Button(LocalizeProducts.copyItem.rawValue) {
+//                if let id = viewModel.selectedProduct?.id {
+//                    viewModel.copyID(id: "\(id)")
+//                }
+//            }
+//            Button(LocalizeProducts.copyVlItem.rawValue) {
+//                if let vlId = viewModel.selectedProduct?.vlId {
+//                    viewModel.copyID(id: vlId)
+//                }
+//            }
             Button(LocalizeProducts.cancel.rawValue, role: .cancel) {}
         }
     }

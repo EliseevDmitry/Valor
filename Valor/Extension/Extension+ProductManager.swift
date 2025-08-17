@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ProductManager {
+extension RemoteProductManager {
     func getProducts<T: Decodable>(of type: T.Type, data: Data) throws -> T {
         do {
             let objects = try JSONDecoder().decode(T.self, from: data)

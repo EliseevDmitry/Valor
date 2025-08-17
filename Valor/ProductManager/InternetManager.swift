@@ -23,7 +23,7 @@ final class InternetManager: IInternetManager {
     func isInternetReallyAvailable() async -> Bool {
         let monitorStatus = await checkInternetConnection()
         if !monitorStatus { return false }
-        guard let url = URL(string: URLProducts.products.rawValue) else {
+        guard let url = URLProducts.products.url else {
             return false
         }
         var request = URLRequest(url: url)

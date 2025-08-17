@@ -12,46 +12,46 @@ struct ProductsResponse: Codable {
 }
 
 struct Product: Codable, Identifiable {
+    let id: Int
     let title: String
     let category: String
     let price: Double
     let discountPercentage: Double
     let thumbnail: String
-
-    let uniqID: UUID
-    let id: String
-    let vlId: String
+    let globalSKU: String
+    let localSKU: String
     let currency: String
 
     enum CodingKeys: String, CodingKey {
-        case title, category, price, discountPercentage, thumbnail
+        case id, title, category, price, discountPercentage, thumbnail
     }
 
     init(
+        id: Int,
         title: String,
         category: String,
         price: Double,
         discountPercentage: Double,
         thumbnail: String,
-        uniqID: UUID = UUID(),
-        id: String = Product.generateRandomDigitsString(),
-        vlId: String = "VL \(Product.generateRandomDigitsString())",
+        globalSKU: String = Product.generateRandomDigitsString(),
+        localSKU: String = "VL \(Product.generateRandomDigitsString())",
         currency: String = "RUB"
     ) {
+        self.id = id
         self.title = title
         self.category = category
         self.price = price
         self.discountPercentage = discountPercentage
         self.thumbnail = thumbnail
-        self.uniqID = uniqID
-        self.id = id
-        self.vlId = vlId
+        self.globalSKU = globalSKU
+        self.localSKU = localSKU
         self.currency = currency
     }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
+        
+        let id = try container.decode(Int.self, forKey: .id)
         let title = try container.decode(String.self, forKey: .title)
         let category = try container.decode(String.self, forKey: .category)
         let price = try container.decode(Double.self, forKey: .price)
@@ -59,6 +59,7 @@ struct Product: Codable, Identifiable {
         let thumbnail = try container.decode(String.self, forKey: .thumbnail)
 
         self.init(
+            id: id,
             title: title,
             category: category,
             price: price,
