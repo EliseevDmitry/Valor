@@ -24,7 +24,7 @@
 		264D21192DF9D63200F0A179 /* PricesAndDiscountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264D21182DF9D63200F0A179 /* PricesAndDiscountsView.swift */; };
 		264D211C2DF9DC2600F0A179 /* Image+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264D211B2DF9DC2600F0A179 /* Image+Name.swift */; };
 		264D211E2DF9E58B00F0A179 /* LoadingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264D211D2DF9E58B00F0A179 /* LoadingCircleView.swift */; };
-		26566EE42E51838100959D5E /* ProductsStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26566EE22E51838100959D5E /* ProductsStore.xcdatamodeld */; };
+		26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26566EE22E51838100959D5E /* ProductModel.xcdatamodeld */; };
 		26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26566EEB2E51F53800959D5E /* LocalProductManager.swift */; };
 		26566EF32E520CAC00959D5E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26566EF22E520CAC00959D5E /* TestView.swift */; };
 		266E23A22DF9D18500D79B04 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A02DF9D18500D79B04 /* RoutingView.swift */; };
@@ -39,6 +39,7 @@
 		26DBD6F72DFAEE65004ED717 /* MocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6F62DFAEE65004ED717 /* MocData.swift */; };
 		26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */; };
 		26DBD6FE2DFB3A67004ED717 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6FD2DFB3A67004ED717 /* Router.swift */; };
+		26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,7 @@
 		264D21182DF9D63200F0A179 /* PricesAndDiscountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesAndDiscountsView.swift; sourceTree = "<group>"; };
 		264D211B2DF9DC2600F0A179 /* Image+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Name.swift"; sourceTree = "<group>"; };
 		264D211D2DF9E58B00F0A179 /* LoadingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircleView.swift; sourceTree = "<group>"; };
-		26566EE32E51838100959D5E /* ProductsStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductsStore.xcdatamodel; sourceTree = "<group>"; };
+		26566EE32E51838100959D5E /* ProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductModel.xcdatamodel; sourceTree = "<group>"; };
 		26566EEB2E51F53800959D5E /* LocalProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductManager.swift; sourceTree = "<group>"; };
 		26566EF22E520CAC00959D5E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		266E23832DF9D12B00D79B04 /* Valor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +76,7 @@
 		26DBD6F62DFAEE65004ED717 /* MocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocData.swift; sourceTree = "<group>"; };
 		26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		26DBD6FD2DFB3A67004ED717 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -104,6 +106,7 @@
 				262E4E122DFEC01C0001E1C0 /* InternetManager.swift */,
 				26566EEB2E51F53800959D5E /* LocalProductManager.swift */,
 				26566EF22E520CAC00959D5E /* TestView.swift */,
+				26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */,
 			);
 			path = ProductManager;
 			sourceTree = "<group>";
@@ -168,7 +171,7 @@
 		26566EE12E5182A800959D5E /* PersistentData */ = {
 			isa = PBXGroup;
 			children = (
-				26566EE22E51838100959D5E /* ProductsStore.xcdatamodeld */,
+				26566EE22E51838100959D5E /* ProductModel.xcdatamodeld */,
 			);
 			path = PersistentData;
 			sourceTree = "<group>";
@@ -376,8 +379,9 @@
 				262C687E2DFD7BE20025A57F /* Dependency.swift in Sources */,
 				26DBD6F52DFAE881004ED717 /* ProductsView.swift in Sources */,
 				262E4E132DFEC01C0001E1C0 /* InternetManager.swift in Sources */,
-				26566EE42E51838100959D5E /* ProductsStore.xcdatamodeld in Sources */,
+				26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */,
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
+				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
 				262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */,
 				262E4E1B2DFEE96F0001E1C0 /* Extension+Product.swift in Sources */,
@@ -618,13 +622,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		26566EE22E51838100959D5E /* ProductsStore.xcdatamodeld */ = {
+		26566EE22E51838100959D5E /* ProductModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				26566EE32E51838100959D5E /* ProductsStore.xcdatamodel */,
+				26566EE32E51838100959D5E /* ProductModel.xcdatamodel */,
 			);
-			currentVersion = 26566EE32E51838100959D5E /* ProductsStore.xcdatamodel */;
-			path = ProductsStore.xcdatamodeld;
+			currentVersion = 26566EE32E51838100959D5E /* ProductModel.xcdatamodel */;
+			path = ProductModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

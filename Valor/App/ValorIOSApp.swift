@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct ValorIOSApp: App {
-    @Environment(\.scenePhase) private var scenePhase
+   // @Environment(\.scenePhase) private var scenePhase
     init() {
         configureNavigationBarAppearance()
     }
