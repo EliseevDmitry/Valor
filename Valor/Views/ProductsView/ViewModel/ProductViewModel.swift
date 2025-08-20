@@ -64,7 +64,7 @@ final class ProductViewModel: ObservableObject {
     }
     
     func isInternetReallyAvailable() async -> Bool {
-        await Dependency.shared.internetManager.isInternetReallyAvailable()
+        await AppDependencies.shared.networkMonitor.isInternetReallyAvailable()
     }
 
 }

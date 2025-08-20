@@ -34,8 +34,8 @@ struct Product: Codable, Identifiable {
         discountPercentage: Double,
         thumbnail: String,
         globalSKU: String = Product.generateRandomDigitsString(),
-        localSKU: String = "VL \(Product.generateRandomDigitsString())",
-        currency: String = "RUB"
+        localSKU: String = "INT \(Product.generateRandomDigitsString())",
+        currency: String = "USD"
     ) {
         self.id = id
         self.title = title

@@ -13,10 +13,10 @@ enum CoreDataConstants {
 }
 
 protocol ILocalProductManager {
-//    func addProduct(_ product: Product) -> Bool
     func addProducts(_ products: [Product]) -> Bool
     func getImageURLByID(idProduct: Int) -> URL?
     func getProducts() -> [Product]
+    func productsIsEmpty() throws -> Bool
 }
 
 final class LocalProductManager: ILocalProductManager {
@@ -34,23 +34,7 @@ final class LocalProductManager: ILocalProductManager {
 
 // MARK: - Public functions
 extension LocalProductManager {
-    
-//    @discardableResult
-//    func addProduct(_ product: Product) -> Bool {
-//        let newProduct = ProductModel(context: container.viewContext)
-//        newProduct.id = Int16(product.id)
-//        newProduct.title = product.title
-//        newProduct.category = product.category
-//        newProduct.price = product.price
-//        newProduct.discountPercentage = product.discountPercentage
-//        newProduct.thumbnail = product.thumbnail
-//        newProduct.globalSKU = product.globalSKU
-//        newProduct.localSKU = product.localSKU
-//        newProduct.currency = product.currency
-//        return saveData()
-//    }
-    
-   
+
     func addProducts(_ products: [Product]) -> Bool {
         for product in products {
             let newProduct = ProductModel(context: container.viewContext)
@@ -100,6 +84,11 @@ extension LocalProductManager {
                 thumbnail: thumbnail
             )
         }
+    }
+    
+    func productsIsEmpty() throws -> Bool {
+        let request = NSFetchRequest<ProductModel>(entityName: CoreDataConstants.modelName)
+        return try container.viewContext.count(for: request) == 0
     }
     
 }

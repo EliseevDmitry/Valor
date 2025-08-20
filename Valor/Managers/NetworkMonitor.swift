@@ -12,12 +12,12 @@ enum HTTPMethod: String {
     case head = "HEAD"
 }
 
-protocol IInternetManager {
+protocol INetworkMonitor {
     func isInternetReallyAvailable() async -> Bool
 }
 
 
-final class InternetManager: IInternetManager {
+final class NetworkMonitor: INetworkMonitor {
     
     //функция проверки доступности backend даже при включенном VPN
     func isInternetReallyAvailable() async -> Bool {

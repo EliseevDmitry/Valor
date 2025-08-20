@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Kingfisher
+import UIKit
 
 protocol IProductRepository {
     func getProduct() async throws -> [Product]
@@ -15,12 +17,12 @@ protocol IProductRepository {
 final class ProductRepository {
     private var remoteManager: IRemoteProductManager
     private var localManager: ILocalProductManager
-    private var internetManager: IInternetManager
+    private var internetManager: INetworkMonitor
     
     init(
         remoteManager: IRemoteProductManager = RemoteProductManager(),
         localManager: ILocalProductManager = LocalProductManager(),
-        internetManager: IInternetManager = InternetManager()
+        internetManager: INetworkMonitor = NetworkMonitor()
     ) {
         self.remoteManager = remoteManager
         self.localManager = localManager
@@ -41,6 +43,13 @@ extension ProductRepository {
             return localManager.getProducts()
         }
     }
+}
+
+//получение кэша у кингфишера
+func getcachProto(url: String) async throws -> UIImage? {
+ let image =  try await ImageCache.default.retrieveImage(forKey: url)
+    guard let cacheImage = image.image?.cgImage else { return nil }
+    return UIImage(cgImage: cacheImage)
 }
 
 //MARK: - Private functions

@@ -27,13 +27,23 @@ enum URLProducts {
 }
 
 protocol IRemoteProductManager {
-    func fetchData() async throws -> Data
+    func fetchData(url: URL?) async throws -> Data
     func getProducts<T: Decodable>(of type: T.Type, data: Data) throws -> T
 }
 
-final class RemoteProductManager: IRemoteProductManager {
+//MARK: - Public functions
+extension IRemoteProductManager {
     func fetchData() async throws -> Data {
-        guard let url = URLProducts.products.url else {
+        try await fetchData(url: URLProducts.products.url)
+    }
+}
+
+final class RemoteProductManager: IRemoteProductManager { }
+
+//MARK: - Public functions
+extension RemoteProductManager {
+    func fetchData(url: URL?) async throws -> Data {
+        guard let url = url else {
             throw URLError(.badURL)
         }
         let (data, response) = try await URLSession.shared.data(from: url)

@@ -9,47 +9,17 @@ import SwiftUI
 
 @main
 struct ValorIOSApp: App {
-   // @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.scenePhase)
+    private var scenePhase
     init() {
-        configureNavigationBarAppearance()
+        UINavigationBar.applyValorStyle()
     }
-    @StateObject private var router = Router(startAt: .pricesAndDiscounts(.error))
+    @StateObject
+    private var router = Router(startAt: .pricesAndDiscounts(.error)) //посмотреть с чего стартуем
     var body: some Scene {
         WindowGroup {
-            TestView()
-            
-            //            RoutingView()
-            //                .environmentObject(router)
-            //                .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification), perform: { _ in
-            //                    UIPasteboard.general.string?.removeAll()
-            //                })
-            //
-            //        }
-            //        .onChange(of: scenePhase) { newPhase in
-            //            if newPhase == .background {
-            //                removeCopiedID()
-            //                Dependency.shared.imageCacheManager.clear()
-            //            }
-            //        }
+            RoutingView()
+                .environmentObject(router)
         }
-    }
-    
-    private func configureNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
-        appearance.shadowColor = Color.vlColor.uiWhite
-        appearance.backgroundColor = Color.vlColor.uiWhite
-        appearance.titleTextAttributes = [
-            .foregroundColor: Color.vlColor.uiBlack,
-            .font: Font.aBeeZeeRegular
-        ]
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    
-    private func removeCopiedID() {
-        //убивает м/у приложениями
-        //не успел доделать - думаю что через делегат придется делать
-        //UIPasteboard.general.string = nil
     }
 }

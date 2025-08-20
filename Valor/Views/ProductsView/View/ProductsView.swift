@@ -21,7 +21,7 @@ struct ProductsView: View {
     @EnvironmentObject var router: Router
     @StateObject private var viewModel: ProductViewModel
     init(selectedSegment: PickerSegment) {
-        _viewModel = StateObject(wrappedValue: ProductViewModel(manager: Dependency.shared.productManager, selectedSegment: selectedSegment))
+        _viewModel = StateObject(wrappedValue: ProductViewModel(manager: AppDependencies.shared.remoteProductManager, selectedSegment: selectedSegment))
         UISegmentedControl.appearance().selectedSegmentTintColor = .white
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: Color.vlColor.uiBlack, .font: Font.titleSFProRegular], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: Color.vlColor.uiTextPrimary, .font: Font.titleSFProRegular], for: .normal)
