@@ -10,11 +10,15 @@ import Kingfisher
 import UIKit
 
 protocol IProductRepository {
-    func getProduct() async throws -> [Product]
+    func getLocalProducts() -> [Product]
+    func getRemoteProducts() async throws -> [Product]
+    func getProduct() async throws -> (products: [Product], segment: PickerSegment)
+    //удалить функцию
+    func delete()
 }
 
 
-final class ProductRepository {
+final class ProductRepository: IProductRepository {
     private var remoteManager: IRemoteProductManager
     private var localManager: ILocalProductManager
     private var internetManager: INetworkMonitor
@@ -33,16 +37,32 @@ final class ProductRepository {
 
 //MARK: - Public functions
 extension ProductRepository {
-    func getProduct() async throws -> [Product]{
-        if await internetManager.isInternetReallyAvailable(){
-            let data = try await remoteManager.fetchData()
-            let response = try remoteManager.getProducts(of: ProductsResponse.self, data: data)
-            _ = localManager.addProducts(response.products)
-            return response.products
+    
+    func getLocalProducts() -> [Product] {
+        localManager.getProducts()
+    }
+    
+    func getRemoteProducts() async throws -> [Product] {
+        let data = try await remoteManager.fetchData()
+        let response = try remoteManager.getProducts(of: ProductsResponse.self, data: data)
+        _ = localManager.addProducts(response.products)
+        return response.products
+    }
+    
+    func getProduct() async throws -> (products: [Product], segment: PickerSegment){
+        if await internetManager.isInternetAvailable(){
+            let products = try await getRemoteProducts()
+            return (products, .zero)
         } else {
-            return localManager.getProducts()
+            return (getLocalProducts(), .one)
         }
     }
+    
+  
+    func delete(){
+      _ = localManager.deleteAllProducts()
+    }
+ 
 }
 
 //получение кэша у кингфишера

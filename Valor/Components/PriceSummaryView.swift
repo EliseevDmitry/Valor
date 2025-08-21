@@ -19,7 +19,7 @@ import SwiftUI
 struct PriceSummaryView: View {
     let text: String
     let priceDetails: Double
-    let currency: String?
+    let currency: Currency?
     var body: some View {
         ZStack(alignment: .bottom){
             HStack {

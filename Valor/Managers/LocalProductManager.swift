@@ -17,6 +17,8 @@ protocol ILocalProductManager {
     func getImageURLByID(idProduct: Int) -> URL?
     func getProducts() -> [Product]
     func productsIsEmpty() throws -> Bool
+    //удалить функцию
+    func deleteAllProducts() -> Bool
 }
 
 final class LocalProductManager: ILocalProductManager {
@@ -34,9 +36,11 @@ final class LocalProductManager: ILocalProductManager {
 
 // MARK: - Public functions
 extension LocalProductManager {
-
+    //сохраняем только не существующие в базе элементы
     func addProducts(_ products: [Product]) -> Bool {
-        for product in products {
+        let productIDs = fetchProductIDs()
+        let filteredProducts = products.filter { !productIDs.contains(Int16($0.id)) }
+        for product in filteredProducts {
             let newProduct = ProductModel(context: container.viewContext)
             newProduct.id = Int16(product.id)
             newProduct.title = product.title
@@ -46,10 +50,11 @@ extension LocalProductManager {
             newProduct.thumbnail = product.thumbnail
             newProduct.globalSKU = product.globalSKU
             newProduct.localSKU = product.localSKU
-            newProduct.currency = product.currency
+            newProduct.currency = product.currency.rawValue
         }
         return saveData()
     }
+
     
     //в теории метод возвращает URL - который хранится в файл менеджере
     func getImageURLByID(idProduct: Int) -> URL? {
@@ -91,6 +96,21 @@ extension LocalProductManager {
         return try container.viewContext.count(for: request) == 0
     }
     
+    //не знаю нужна ли эта функция?
+    func deleteAllProducts() -> Bool {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = ProductModel.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try container.viewContext.execute(batchDeleteRequest)
+            try container.viewContext.save()
+            return true
+        } catch {
+            print("Ошибка удаления всех продуктов: \(error)")
+            return false
+        }
+    }
+    
 }
 
 // MARK: - Private functions
@@ -114,4 +134,24 @@ extension LocalProductManager {
             return []
         }
     }
+    
+    //переделать id через codable
+    //получение уникальных id
+    private func fetchProductIDs() -> Set<Int16> {
+        let fetchRequest = NSFetchRequest<NSDictionary>(entityName: CoreDataConstants.modelName)
+        fetchRequest.resultType = .dictionaryResultType
+        fetchRequest.propertiesToFetch = ["id"]
+
+        var productIDs = Set<Int16>()
+        do {
+            let results = try container.viewContext.fetch(fetchRequest)
+            productIDs = Set(results.compactMap { $0["id"] as? Int16 })
+        } catch {
+            print("Ошибка выборки id: \(error)")
+        }
+        return productIDs
+    }
+    
+    
+    
 }

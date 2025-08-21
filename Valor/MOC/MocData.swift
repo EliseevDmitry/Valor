@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Mock data for previews and manual testing.
 struct MocData {
     static let testProduct = Product(
         id: 1,
@@ -14,6 +15,7 @@ struct MocData {
         category: "phones",
         price: 550,
         discountPercentage: 10,
-        thumbnail: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+        thumbnail: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+        currency: .USD
     )
 }

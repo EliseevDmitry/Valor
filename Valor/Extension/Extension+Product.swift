@@ -7,8 +7,11 @@
 
 import Foundation
 
+/// Returns the product price after applying the discount percentage.
+/// Ensures the discount is between 0% and 100%.
 extension Product {
     var discountedPrice: Double {
-        return price * (1 - discountPercentage / 100)
+        let validDiscount = min(max(discountPercentage, 0), 100)
+        return price * (1 - validDiscount / 100)
     }
 }

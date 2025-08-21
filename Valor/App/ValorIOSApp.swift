@@ -9,13 +9,11 @@ import SwiftUI
 
 @main
 struct ValorIOSApp: App {
-    @Environment(\.scenePhase)
-    private var scenePhase
     init() {
         UINavigationBar.applyValorStyle()
     }
     @StateObject
-    private var router = Router(startAt: .pricesAndDiscounts(.error)) //посмотреть с чего стартуем
+    private var router = Router(startAt: .pricesAndDiscounts(.error))
     var body: some Scene {
         WindowGroup {
             RoutingView()

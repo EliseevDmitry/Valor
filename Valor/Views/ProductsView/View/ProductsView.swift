@@ -19,9 +19,9 @@ import UIKit
 
 struct ProductsView: View {
     @EnvironmentObject var router: Router
-    @StateObject private var viewModel: ProductViewModel
+    @StateObject private var viewModel: ProductViewModel = ProductViewModel(selectedSegment: .one)
     init(selectedSegment: PickerSegment) {
-        _viewModel = StateObject(wrappedValue: ProductViewModel(manager: AppDependencies.shared.remoteProductManager, selectedSegment: selectedSegment))
+
         UISegmentedControl.appearance().selectedSegmentTintColor = .white
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: Color.vlColor.uiBlack, .font: Font.titleSFProRegular], for: .selected)
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: Color.vlColor.uiTextPrimary, .font: Font.titleSFProRegular], for: .normal)
@@ -74,11 +74,13 @@ struct ProductsView: View {
                 case PickerSegment.zero: break
                     //routing
                 case PickerSegment.one:
-                    router.push(.pricesAndDiscounts(.loading))
-                    Task {
-                        try? await Task.sleep(nanoseconds: 1_000_000_000)
-                        router.push(.pricesAndDiscounts(.empty))
-                    }
+//                    router.push(.pricesAndDiscounts(.loading))
+//                    Task {
+//                        try? await Task.sleep(nanoseconds: 1_000_000_000)
+//                        router.push(.pricesAndDiscounts(.empty))
+//                    }
+                   // router.push(.pricesAndDiscounts(.loading))
+                    viewModel.getLocalProducts(router: router)
                 }
             }
         }

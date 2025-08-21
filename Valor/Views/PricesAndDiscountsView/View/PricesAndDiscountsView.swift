@@ -7,44 +7,103 @@
 
 import SwiftUI
 
-/*
- Требование: "Интерфейс должен маĸсимально точно соответствовать маĸету"
- Использование - magic numbers - плохая практика, старался не прибегать,
- или минимизировать их использование (сложно было понять термин - маĸсимально точно).
- Теоретически можно было - перенести всю геометрию Figma в текущих размерах в уравнения,
- через GR при старте приложения считать wight и height (конкретного устройства)
- и через систему уравнений - пересчитывать интерфейс (максимальное масштабирование под устройство).
- */
+enum LocalizePrices: String {
+    case notFound = "Ничего не найдено"
+    case fail = "Что-то пошло не так"
+    case tryLater = "Попробуйте позднее"
+    case update = "Обновить"
+}
+
+enum StatePricesView {
+    case error, loading, empty
+    
+    var imageName: String? {
+        switch self {
+        case .error:
+            CustomImage.errorView.rawValue
+        case .empty:
+            CustomImage.emptyView.rawValue
+        case .loading:
+            nil
+        }
+    }
+}
+
+final class PricesAndDiscountsViewModel: ObservableObject {
+        private var networkMonitor: INetworkMonitor
+        private var localProductManager: ILocalProductManager
+        
+        init(
+            networkMonitor: INetworkMonitor = AppDependencies.shared.networkMonitor,
+            localProductManager: ILocalProductManager = AppDependencies.shared.localProductManager
+        ) {
+            self.networkMonitor = networkMonitor
+            self.localProductManager = localProductManager
+        }
+    }
+
+    // MARK: - Public functions
+    extension PricesAndDiscountsViewModel {
+        @MainActor
+        func loadData(router: Router) async {
+            router.push(.pricesAndDiscounts(.loading))
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            let hasInternet = await isInternetAvailable()
+            if hasInternet {
+                router.push(.productsInternet)
+            } else {
+                do {
+                    let emptyProducts = try localProductManager.productsIsEmpty()
+                    if emptyProducts {
+                        router.push(.pricesAndDiscounts(.empty))
+                    } else {
+                        router.push(.productsLocal)
+                    }
+                } catch {
+                    router.push(.pricesAndDiscounts(.error))
+                }
+            }
+        }
+    }
+
+    // MARK: - Private functions
+    extension PricesAndDiscountsViewModel {
+        func productsIsEmpty() -> Bool {
+            do {
+                return try localProductManager.productsIsEmpty()
+            } catch {
+                //комментарий
+                return false
+            }
+        }
+        
+        
+        private func isInternetAvailable() async -> Bool {
+            await networkMonitor.isInternetAvailable()
+        }
+    }
+
+
 
 struct PricesAndDiscountsView: View {
     @EnvironmentObject var router: Router
-    @Binding var loadingState: StatePricesView
-    @StateObject private var viewModel = PricesAndDiscountsViewModel()
+    @State var isAnimating: Bool = false
+    @StateObject
+    private var viewModel = PricesAndDiscountsViewModel()
     var body: some View {
         VStack {
             Color.vlColor.background
                 .overlay {
                     VStack {
-                        /*
-                         Аппроксимированное центрирование элемента на экране
-                         без вычислений через GeometryReader
-                         и без смещений с помощью .offset(y:)
-                         */
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        switch loadingState {
-                        case .error:
-                            errorStateView
-                        case .loading:
-                            loadingStateView
-                        case .empty:
-                            emptyStateView
+                        
+                        if case let .pricesAndDiscounts(state) = router.currentRoute {
+                            switch state {
+                            case .error: errorStateView
+                            case .loading: loadingStateView
+                            case .empty: emptyStateView
+                            }
                         }
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
+                        
                     }
                 }
         }
@@ -52,12 +111,13 @@ struct PricesAndDiscountsView: View {
     }
     
     private var loadingStateView: some View {
-        LoadingCircleView(isAnimating: $viewModel.isAnimating)
+        LoadingCircleView(isAnimating: $isAnimating)
     }
     
     private var emptyStateView: some View {
         Group {
-            if let name = loadingState.imageName {
+            if case let .pricesAndDiscounts(state) = router.currentRoute,
+               let name = state.imageName {
                 Image(name)
             }
             Text(LocalizePrices.notFound.rawValue)
@@ -65,13 +125,14 @@ struct PricesAndDiscountsView: View {
                 .foregroundStyle(Color.vlColor.text)
         }
         .onAppear{
-            viewModel.isAnimating = false
+            isAnimating = false
         }
     }
     
     private var errorStateView: some View {
         Group {
-            if let name = loadingState.imageName {
+            if case let .pricesAndDiscounts(state) = router.currentRoute,
+               let name = state.imageName {
                 Image(name)
             }
             VStack{
@@ -88,7 +149,9 @@ struct PricesAndDiscountsView: View {
                 .frame(height: 52)
                 Spacer()
                 Button {
-                    goToProductsView()
+                    Task{
+                        await viewModel.loadData(router: router)
+                    }
                 } label: {
                     HStack {
                         Image(CustomImage.button.rawValue)
@@ -104,35 +167,19 @@ struct PricesAndDiscountsView: View {
             .frame(height: 108)
         }
         .onAppear{
-            viewModel.isAnimating = false
+            isAnimating = false
         }
     }
-    
-    private func goToProductsView(){
-        router.push(.pricesAndDiscounts(.loading))
-        Task {
-            switch await viewModel.isInternetReallyAvailable() {
-            case true:
-                router.push(.productsInternet)
-            case false:
-                router.push(.pricesAndDiscounts(.loading))
-                Task {
-                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-                    router.push(.pricesAndDiscounts(.empty))
-                }
-            }
-        }
-    }
-    
 }
 
-//navigationTitle и ignoresSafeArea - настраиваются для всех в RoutingView
-#Preview {
-    NavigationView(content: {
-        //три состояния экрана PricesAndDiscountsView() - .empty, .error, .loading
-        PricesAndDiscountsView(loadingState: .constant(.error))
-            .navigationTitle(LocalizeRouting.title.rawValue)
-            .navigationBarTitleDisplayMode(.inline)
-            .ignoresSafeArea(edges: .bottom)
-    })
-}
+
+
+//#Preview {
+//    NavigationView(content: {
+//        //три состояния экрана PricesAndDiscountsView() - .empty, .error, .loading
+//        PricesAndDiscountsView()
+//            .navigationTitle(LocalizeRouting.title.rawValue)
+//            .navigationBarTitleDisplayMode(.inline)
+//            .ignoresSafeArea(edges: .bottom)
+//    })
+//}

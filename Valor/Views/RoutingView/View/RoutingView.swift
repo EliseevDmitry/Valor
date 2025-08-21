@@ -11,15 +11,19 @@ enum LocalizeRouting: String {
     case title = "Цены и скидки"
 }
 
+
+
 struct RoutingView: View {
     @EnvironmentObject var router: Router
+   // @StateObject private var viewModel = RoutingViewModel()
     var body: some View {
         NavigationView {
             VStack {
                 if let route = router.currentRoute {
                     destinationView(for: route)
                 } else {
-                    PricesAndDiscountsView(loadingState: .constant(.loading))
+                    //PricesAndDiscountsView(loadingState: .constant(.loading))
+                    PricesAndDiscountsView()
                 }
             }
             .navigationTitle(LocalizeRouting.title.rawValue)
@@ -51,8 +55,8 @@ struct RoutingView: View {
             ProductsView(selectedSegment: PickerSegment.zero)
         case .productsLocal:
             ProductsView(selectedSegment: PickerSegment.one)
-        case .pricesAndDiscounts(let state):
-            PricesAndDiscountsView(loadingState: .constant(state))
+        case .pricesAndDiscounts(_):
+            PricesAndDiscountsView()
         }
     }
     
@@ -60,7 +64,7 @@ struct RoutingView: View {
         guard let route = router.currentRoute else { return false }
         switch route {
         case .pricesAndDiscounts(let state):
-            return state != .error
+            return state != .loading && state != .error
         default:
             return true
         }

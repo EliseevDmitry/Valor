@@ -22,26 +22,31 @@ enum PickerSegment: Int {
 }
 
 final class ProductViewModel: ObservableObject {
-    private var productManager: IRemoteProductManager
+    
+    private var productManager: IProductRepository
     @Published var products: [Product] = []
+    
     @Published var selectedProduct: Product? = nil
     @Published var showDialog = false
     @Published var showToast = false
     @Published var selectedSegment: PickerSegment
-
-    init(manager: IRemoteProductManager, selectedSegment: PickerSegment) {
+    
+    init(manager: IProductRepository = ProductRepository(), selectedSegment: PickerSegment) {
         self.productManager = manager
         self.selectedSegment = selectedSegment
     }
-
+    
+    
+    
+    //вынести в отдельный сервис
     func copyID(id: String) {
-            UIPasteboard.general.string = id
-            Task { @MainActor in
-                showToast = true
-                try? await Task.sleep(nanoseconds: 2_000_000_000)
-                showToast = false
-            }
+        UIPasteboard.general.string = id
+        Task { @MainActor in
+            showToast = true
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            showToast = false
         }
+    }
     
     func showID() -> String {
         guard let message = UIPasteboard.general.string else { return ""}
@@ -51,20 +56,26 @@ final class ProductViewModel: ObservableObject {
     func getProducts() {
         Task {
             do {
-                let data = try await productManager.fetchData()
-                let decoded = try productManager.getProducts(of: ProductsResponse.self, data: data)
-                
+                let returnProducts = try await productManager.getProduct()
                 await MainActor.run {
-                    self.products = decoded.products
+                    self.products = returnProducts.products
+                    self.selectedSegment = returnProducts.segment
                 }
             } catch {
                 print("Ошибка получения данных: \(error)")
             }
+            
         }
     }
     
-    func isInternetReallyAvailable() async -> Bool {
-        await AppDependencies.shared.networkMonitor.isInternetReallyAvailable()
+    func getLocalProducts(router: Router) {
+        productManager.delete()
+        let products = productManager.getLocalProducts()
+        if !products.isEmpty {
+            self.products = products
+        } else {
+            router.push(.pricesAndDiscounts(.error))
+        }
     }
-
+    
 }

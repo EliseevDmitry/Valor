@@ -13,14 +13,14 @@ enum HTTPMethod: String {
 }
 
 protocol INetworkMonitor {
-    func isInternetReallyAvailable() async -> Bool
+    func isInternetAvailable() async -> Bool
 }
 
 
 final class NetworkMonitor: INetworkMonitor {
     
     //функция проверки доступности backend даже при включенном VPN
-    func isInternetReallyAvailable() async -> Bool {
+    func isInternetAvailable() async -> Bool {
         let monitorStatus = await checkInternetConnection()
         if !monitorStatus { return false }
         guard let url = URLProducts.products.url else {
