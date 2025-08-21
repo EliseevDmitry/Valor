@@ -8,3 +8,4 @@ Valor — a pet project showcasing practical iOS development skills with Swift a
 ![FileManager](https://img.shields.io/badge/-FileManager-0366d6?style=flat&logo=apple&logoColor=white&labelColor=555555)
 ![Unit Testing](https://img.shields.io/badge/-Unit%20Testing-0366d6?style=flat&logo=xcode&logoColor=white&labelColor=555555)
 ![Kingfisher](https://img.shields.io/badge/-Kingfisher-0366d6?style=flat&logo=swift&logoColor=white&labelColor=555555)
+![Figma](https://img.shields.io/badge/-Figma-0366d6?style=flat&logo=figma&logoColor=white&labelColor=555555)
