@@ -29,7 +29,6 @@
 		266E23A22DF9D18500D79B04 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A02DF9D18500D79B04 /* RoutingView.swift */; };
 		266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */; };
 		266E23A52DF9D18500D79B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266E239F2DF9D18500D79B04 /* Assets.xcassets */; };
-		26B31BE12E56D7B400C1AE4A /* RoutingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE02E56D7B400C1AE4A /* RoutingViewModel.swift */; };
 		26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE72E57758200C1AE4A /* ImageService.swift */; };
 		26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE92E577CB300C1AE4A /* Currency.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
@@ -41,6 +40,13 @@
 		26DBD6F72DFAEE65004ED717 /* MocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6F62DFAEE65004ED717 /* MocData.swift */; };
 		26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */; };
 		26DBD6FE2DFB3A67004ED717 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6FD2DFB3A67004ED717 /* Router.swift */; };
+		26EE67B12E58155400BDA0F1 /* Extension+UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */; };
+		26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */; };
+		26EE67B52E581DD300BDA0F1 /* PasteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */; };
+		26EE67B72E5849A200BDA0F1 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */; };
+		26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */; };
+		26EE67BC2E58684000BDA0F1 /* PricesAndDiscountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67BB2E58683F00BDA0F1 /* PricesAndDiscountsViewModel.swift */; };
+		26EE67BE2E58923900BDA0F1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */; };
 		26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +73,6 @@
 		266E239F2DF9D18500D79B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266E23A02DF9D18500D79B04 /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
 		266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorIOSApp.swift; sourceTree = "<group>"; };
-		26B31BE02E56D7B400C1AE4A /* RoutingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingViewModel.swift; sourceTree = "<group>"; };
 		26B31BE72E57758200C1AE4A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		26B31BE92E577CB300C1AE4A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
@@ -80,6 +85,13 @@
 		26DBD6F62DFAEE65004ED717 /* MocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocData.swift; sourceTree = "<group>"; };
 		26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		26DBD6FD2DFB3A67004ED717 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISegmentedControl.swift"; sourceTree = "<group>"; };
+		26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutes.swift; sourceTree = "<group>"; };
+		26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardManager.swift; sourceTree = "<group>"; };
+		26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
+		26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СonfirmationDialogView.swift"; sourceTree = "<group>"; };
+		26EE67BB2E58683F00BDA0F1 /* PricesAndDiscountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesAndDiscountsViewModel.swift; sourceTree = "<group>"; };
+		26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +122,7 @@
 				262C687A2DFD49F50025A57F /* RemoteProductManager.swift */,
 				26566EEB2E51F53800959D5E /* LocalProductManager.swift */,
 				262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */,
+				26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -134,8 +147,7 @@
 		262E4E1E2DFEFBEA0001E1C0 /* RoutingView */ = {
 			isa = PBXGroup;
 			children = (
-				26B31BDE2E56D78A00C1AE4A /* View */,
-				26B31BDF2E56D79400C1AE4A /* ViewModel */,
+				266E23A02DF9D18500D79B04 /* RoutingView.swift */,
 			);
 			path = RoutingView;
 			sourceTree = "<group>";
@@ -152,6 +164,7 @@
 		262E4E222DFEFCAD0001E1C0 /* PricesAndDiscountsView */ = {
 			isa = PBXGroup;
 			children = (
+				26EE67BA2E58682200BDA0F1 /* ViewModel */,
 				2632DA762E55D03A0081D3D8 /* View */,
 			);
 			path = PricesAndDiscountsView;
@@ -191,6 +204,7 @@
 				262E4E1A2DFEE96F0001E1C0 /* Extension+Product.swift */,
 				262E4E1C2DFEFB050001E1C0 /* Extension+ProductManager.swift */,
 				2632DA722E55CC9A0081D3D8 /* Extension+UINavigationBar.swift */,
+				26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */,
 				262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */,
 			);
 			path = Extension;
@@ -261,22 +275,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		26B31BDE2E56D78A00C1AE4A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				266E23A02DF9D18500D79B04 /* RoutingView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		26B31BDF2E56D79400C1AE4A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				26B31BE02E56D7B400C1AE4A /* RoutingViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		26B31BE42E576EC600C1AE4A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +299,9 @@
 				264D211D2DF9E58B00F0A179 /* LoadingCircleView.swift */,
 				26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */,
 				262E4E182DFED6B70001E1C0 /* ToastView.swift */,
+				26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */,
+				26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */,
+				26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -326,8 +327,17 @@
 			isa = PBXGroup;
 			children = (
 				26DBD6FD2DFB3A67004ED717 /* Router.swift */,
+				26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		26EE67BA2E58682200BDA0F1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				26EE67BB2E58683F00BDA0F1 /* PricesAndDiscountsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,9 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26EE67B52E581DD300BDA0F1 /* PasteboardManager.swift in Sources */,
 				262E4E1D2DFEFB050001E1C0 /* Extension+ProductManager.swift in Sources */,
 				262E4E152DFEC0FD0001E1C0 /* Extension+URLResponse.swift in Sources */,
 				262E4E112DFEA0680001E1C0 /* Extension+Double.swift in Sources */,
+				26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */,
 				264D211E2DF9E58B00F0A179 /* LoadingCircleView.swift in Sources */,
 				26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */,
 				262C68F12DFDC0C50025A57F /* PriceSummaryView.swift in Sources */,
@@ -421,14 +433,17 @@
 				262E4E192DFED6B70001E1C0 /* ToastView.swift in Sources */,
 				262C68D72DFD93A90025A57F /* RemoteImage.swift in Sources */,
 				264D21192DF9D63200F0A179 /* PricesAndDiscountsView.swift in Sources */,
+				26EE67B12E58155400BDA0F1 /* Extension+UISegmentedControl.swift in Sources */,
 				26DBD6FE2DFB3A67004ED717 /* Router.swift in Sources */,
 				264D211C2DF9DC2600F0A179 /* CustomImage.swift in Sources */,
+				26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */,
 				266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */,
 				26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */,
 				262C68F52DFDC7710025A57F /* Extension+EnvironmentValues.swift in Sources */,
 				262E4E212DFEFC1C0001E1C0 /* ProductViewModel.swift in Sources */,
 				26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */,
 				26DBD6F12DFACE5D004ED717 /* ProductsResponse.swift in Sources */,
+				26EE67B72E5849A200BDA0F1 /* StickyHeader.swift in Sources */,
 				262C687E2DFD7BE20025A57F /* AppDependencies.swift in Sources */,
 				2632DA732E55CC9A0081D3D8 /* Extension+UINavigationBar.swift in Sources */,
 				26DBD6F52DFAE881004ED717 /* ProductsView.swift in Sources */,
@@ -437,11 +452,12 @@
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
 				26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */,
 				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
-				26B31BE12E56D7B400C1AE4A /* RoutingViewModel.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
 				262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */,
 				262E4E1B2DFEE96F0001E1C0 /* Extension+Product.swift in Sources */,
 				26DBD6F72DFAEE65004ED717 /* MocData.swift in Sources */,
+				26EE67BE2E58923900BDA0F1 /* PrimaryButton.swift in Sources */,
+				26EE67BC2E58684000BDA0F1 /* PricesAndDiscountsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

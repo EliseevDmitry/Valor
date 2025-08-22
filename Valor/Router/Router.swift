@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-/// Represents all possible screens and navigation routes in the app.
-enum AppRoute: Hashable {
-    case productsInternet
-    case productsLocal
-    case pricesAndDiscounts(StatePricesView)
-}
-
 /// Manages the app's current navigation state.
 final class Router: ObservableObject {
     @Published var currentRoute: AppRoute?

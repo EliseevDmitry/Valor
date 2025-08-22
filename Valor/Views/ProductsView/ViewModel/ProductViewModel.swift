@@ -7,14 +7,7 @@
 
 import UIKit
 
-enum LocalizeProducts: String {
-    case all = "Все"
-    case withoutPrice = "Товары без цены"
-    case copyItem = "Скопировать артикул"
-    case copyVlItem = "Скопировать артикул VL"
-    case cancel = "Отмена"
-    case copy = "Скопированный ID = "
-}
+
 
 enum PickerSegment: Int {
     case zero = 0
@@ -24,6 +17,7 @@ enum PickerSegment: Int {
 final class ProductViewModel: ObservableObject {
     
     private var productManager: IProductRepository
+    private var pasteboardManager: IPasteboardManager
     @Published var products: [Product] = []
     
     @Published var selectedProduct: Product? = nil
@@ -31,27 +25,47 @@ final class ProductViewModel: ObservableObject {
     @Published var showToast = false
     @Published var selectedSegment: PickerSegment
     
-    init(manager: IProductRepository = ProductRepository(), selectedSegment: PickerSegment) {
-        self.productManager = manager
+    
+    
+    init(
+        productManager: IProductRepository = ProductRepository(),
+        pasteboardManager: IPasteboardManager = PasteboardManager(),
+        selectedSegment: PickerSegment
+    ) {
+        self.productManager = productManager
         self.selectedSegment = selectedSegment
+        self.pasteboardManager = pasteboardManager
     }
     
     
-    
-    //вынести в отдельный сервис
-    func copyID(id: String) {
-        UIPasteboard.general.string = id
-        Task { @MainActor in
-            showToast = true
-            try? await Task.sleep(nanoseconds: 2_000_000_000)
-            showToast = false
-        }
+    func copyID(id: String?) {
+        guard let id = id else { return }
+        pasteboardManager.copyID(id: id)
+        showIDInToast()
     }
     
     func showID() -> String {
-        guard let message = UIPasteboard.general.string else { return ""}
-        return message
+        guard let id = pasteboardManager.showID() else {
+            return "no coping id"
+        }
+        return id
     }
+    
+    func select(_ product: Product) {
+        selectedProduct = product
+        showDialog = true
+    }
+    
+    func segmentChanged(to segment: PickerSegment, router: Router) {
+        switch segment {
+        case .zero:
+            break
+        case .one:
+            break
+            //getLocalProducts(router: router)
+        }
+    }
+    
     
     func getProducts() {
         Task {
@@ -78,4 +92,11 @@ final class ProductViewModel: ObservableObject {
         }
     }
     
+    private func showIDInToast() {
+        Task { @MainActor in
+            showToast = true
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            showToast = false
+        }
+    }
 }

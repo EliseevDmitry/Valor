@@ -14,10 +14,33 @@ import Foundation
 enum CustomImage: String {
     //Assets images
     case button = "refreshicon"
-    case backButton = "chevron.left"
     case errorView = "illustration-circle-error"
     case emptyView = "illustration-flashlight-guide"
     case burgerPoints = "morehorizontal"
     //systemImages SF
     case photo = "photo"
+    case backButton = "chevron.left"
+}
+
+//Routing View
+enum LocalizeRouting {
+    static let title = "Prices and Discounts"
+}
+
+//ProductsView
+enum LocalizeProducts: String {
+    case all = "Все"
+    case withoutPrice = "Товары без цены"
+    case copyItem = "Скопировать артикул"
+    case copyVlItem = "Скопировать артикул VL"
+    case cancel = "Отмена"
+    case copy = "Скопированный ID = "
+}
+
+//PricesAndDiscountsView
+enum LocalizePrices: String {
+    case notFound = "Ничего не найдено"
+    case fail = "Что-то пошло не так"
+    case tryLater = "Попробуйте позднее"
+    case update = "Обновить"
 }

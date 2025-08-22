@@ -12,9 +12,10 @@ import SwiftUI
 /// Magic numbers are used directly here for simplicity, as this is an educational project.
 /// In a production project, it is recommended to store such constants in a dedicated enum to improve readability and maintainability.
 struct ToastView: View {
+    @Binding var showToast: Bool
     let message: String
     var body: some View {
-        Text(message)
+        Text(LocalizeProducts.copy.rawValue + message)
             .font(.titleSFProRegular16())
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
@@ -26,9 +27,11 @@ struct ToastView: View {
             .foregroundColor(.white)
             .cornerRadius(12)
             .padding(.bottom, 40)
+            .animation(.easeInOut, value: showToast)
+            .transition(.opacity)
     }
 }
 
 #Preview {
-    ToastView(message: "Test message")
+ //   ToastView(message: "Test message")
 }
