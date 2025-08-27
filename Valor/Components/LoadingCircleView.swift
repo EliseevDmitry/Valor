@@ -7,26 +7,29 @@
 
 import SwiftUI
 
-/*
- Требование: "Интерфейс должен маĸсимально точно соответствовать маĸету"
- Использование - magic numbers - плохая практика, старался не прибегать,
- или минимизировать их использование (сложно было понять термин - маĸсимально точно).
- Теоретически можно было - перенести всю геометрию Figma в текущих размерах в уравнения,
- через GR при старте приложения считать wight и height (конкретного устройства)
- и через систему уравнений - пересчитывать интерфейс (максимальное масштабирование под устройство).
- */
-
+/// An animated SwiftUI view showing a semicircle that rotates infinitely.
+/// Used as a loading indicator with customizable color, line width, size, and animation duration.
+/// Starts the animation when the view appears.
 struct LoadingCircleView: View {
-    @Binding var isAnimating: Bool
+    @State private var isAnimating = false
+    private enum Layout {
+        static let trimFrom: CGFloat = 0
+        static let trimTo: CGFloat = 0.5
+        static let lineWidth: CGFloat = 5
+        static let size: CGFloat = 32
+        static let animationDuration: Double = 1
+        static let animationRepeatForever = true
+        static let animationAutoreverses = false
+    }
     var body: some View {
         Circle()
-            .trim(from: 0, to: 0.5)
-            .stroke(Color.vlColor.buttons, lineWidth: 5)
-            .frame(width: 32, height: 32)
+            .trim(from: Layout.trimFrom, to: Layout.trimTo)
+            .stroke(Color.vlColor.buttons, lineWidth: Layout.lineWidth)
+            .frame(width: Layout.size, height: Layout.size)
             .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
             .animation(
-                Animation.linear(duration: 1)
-                    .repeatForever(autoreverses: false),
+                Animation.linear(duration: Layout.animationDuration)
+                    .repeatForever(autoreverses: Layout.animationAutoreverses),
                 value: isAnimating
             )
             .onAppear {
@@ -36,5 +39,5 @@ struct LoadingCircleView: View {
 }
 
 #Preview {
-    LoadingCircleView(isAnimating: .constant(true))
+    LoadingCircleView()
 }

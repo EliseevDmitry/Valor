@@ -9,29 +9,37 @@ import SwiftUI
 
 /// SwiftUI view for displaying a toast notification.
 /// Shows a brief message (in this case, the product's article number when copied to the clipboard).
-/// Magic numbers are used directly here for simplicity, as this is an educational project.
-/// In a production project, it is recommended to store such constants in a dedicated enum to improve readability and maintainability.
 struct ToastView: View {
     @Binding var showToast: Bool
     let message: String
+    
+    private enum Layout {
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 10
+        static let cornerRadius: CGFloat = 12
+        static let bottomPadding: CGFloat = 40
+        static let backgroundOpacity: Double = 0.7
+        static let animation: Animation = .easeInOut
+    }
+    
     var body: some View {
         Text(LocalizeProducts.copy.rawValue + message)
             .font(.titleSFProRegular16())
-            .padding(.horizontal, 16)
-            .padding(.vertical, 10)
+            .padding(.horizontal, Layout.horizontalPadding)
+            .padding(.vertical, Layout.verticalPadding)
             .background(
-                Color
-                    .black
-                    .opacity(0.7)
+                Color.black.opacity(Layout.backgroundOpacity)
             )
             .foregroundColor(.white)
-            .cornerRadius(12)
-            .padding(.bottom, 40)
-            .animation(.easeInOut, value: showToast)
+            .cornerRadius(Layout.cornerRadius)
+            .padding(.bottom, Layout.bottomPadding)
+            .animation(Layout.animation, value: showToast)
             .transition(.opacity)
     }
 }
 
 #Preview {
- //   ToastView(message: "Test message")
+    StatefulPreviewWrapper(true) { binding in
+        ToastView(showToast: binding, message: "Test message")
+    }
 }

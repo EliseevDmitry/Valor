@@ -44,3 +44,5 @@ enum LocalizePrices: String {
     case tryLater = "Попробуйте позднее"
     case update = "Обновить"
 }
+
+//

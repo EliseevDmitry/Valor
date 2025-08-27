@@ -44,11 +44,11 @@ struct ProductsView: View {
     //scroll products UI
     private var bodyProducts: some View {
         ForEach(
-            Array(viewModel.products.enumerated()),
-            id: \.element.id
-        ) { index, product in
+            viewModel.products,
+            id: \.id
+        ) {product in
             ProductCardView(product: product)
-                .padding(.top, index == 0 ? 5 : 0)
+                .padding(.top, 5)
                 .onTapGesture {
                     viewModel.select(product)
                 }

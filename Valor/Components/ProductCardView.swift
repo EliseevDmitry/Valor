@@ -7,119 +7,129 @@
 
 import SwiftUI
 
-/*
- Требование: "Интерфейс должен маĸсимально точно соответствовать маĸету"
- Использование - magic numbers - плохая практика, старался не прибегать,
- или минимизировать их использование (сложно было понять термин - маĸсимально точно).
- Теоретически можно было - перенести всю геометрию Figma в текущих размерах в уравнения,
- через GR при старте приложения считать wight и height (конкретного устройства)
- и через систему уравнений - пересчитывать интерфейс (максимальное масштабирование под устройство).
- */
-
-enum LocalizeProductCard: String {
-    case item = "Арт. "
-    case price = "Цена продавца до скидки"
-    case discounts = "Скидка продавца"
-    case priceWithDiscounts = "Цена со скидкой"
-}
-
+/// Main product card view component that combines product information and pricing details.
 struct ProductCardView: View {
     let product: Product
-    var body: some View {
-        VStack(spacing: 0){
-            productInfo
-            priceSummary
-            Spacer()
+    
+    /// Layout constants grouped by logical UI sections for maintainability and scalability.
+    private enum Layout {
+        enum Card {
+            static let height: CGFloat = 240
+            static let cornerRadius: CGFloat = 16
         }
-        .background(Color.vlColor.vlBackground)
-        .frame(height: 240)
-        .frame(maxWidth: .infinity)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        
+        enum Image {
+            static let width: CGFloat = 84
+            static let height: CGFloat = 116
+            static let cornerRadius: CGFloat = 8
+            static let borderWidth: CGFloat = 2
+        }
+        
+        enum Title {
+            static let height: CGFloat = 91
+            static let skuTextHeight: CGFloat = 38
+            static let verticalSpacing: CGFloat = 3
+        }
+        
+        enum CategoryLabel {
+            static let height: CGFloat = 24
+            static let cornerRadius: CGFloat = 6
+            static let horizontalPadding: CGFloat = 6
+        }
+        
+        enum Menu {
+            static let buttonSize: CGFloat = 32
+            static let iconSize: CGFloat = 24
+            static let cornerRadius: CGFloat = 12
+        }
+        
+        enum Section {
+            static let topHeight: CGFloat = 152
+            static let bottomHeight: CGFloat = 70
+            static let horizontalSpacing: CGFloat = 16
+            static let contentPadding: CGFloat = 16
+        }
     }
     
+    var body: some View {
+        VStack(spacing: 0) {
+            productInfo
+            priceSummary
+        }
+        .padding(.horizontal)
+        .background(Color.vlColor.vlBackground)
+        .frame(height: Layout.Card.height)
+        .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: Layout.Card.cornerRadius))
+    }
+    
+    /// Top section of the card displaying product image, category, title, SKU, and menu button.
     private var productInfo: some View {
-        HStack(alignment: .top, spacing: 16){
+        HStack(alignment: .top, spacing: Layout.Section.horizontalSpacing) {
             RemoteImage(url: product.thumbnail, contentMode: .fit)
-                .frame(width: 84, height: 116)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .frame(width: Layout.Image.width, height: Layout.Image.height)
+                .clipShape(RoundedRectangle(cornerRadius: Layout.Image.cornerRadius))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.vlColor.background, lineWidth: 1)
+                    RoundedRectangle(cornerRadius: Layout.Image.cornerRadius)
+                        .stroke(Color.vlColor.background, lineWidth: Layout.Image.borderWidth)
                 )
-            VStack(alignment: .leading, spacing: 3){
-                Text(capitalizeFirstLetter(product.category))
-                    .font(.titleSFProRegular14())
-                    .foregroundStyle(Color.vlColor.textPrimary)
-                    .padding(.horizontal, 6)
-                    .background(Color.vlColor.background)
-                    .frame(height: 24)
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
+            VStack(alignment: .leading, spacing: Layout.Title.verticalSpacing) {
+                Text(product.category.capitalizingFirstLetter)
+                    .categoryLabelStyle()
                 Text(product.title)
-                    .font(.titleSFProRegular16())
-                    .foregroundStyle(Color.vlColor.text)
-                    .truncationMode(.tail)
-                VStack(alignment: .leading){
-                    Text(
-                        LocalizeProductCard.item.rawValue + product.globalSKU
-                    )
-                    Text(
-                        LocalizeProductCard.item.rawValue + product.localSKU
-                    )
+                    .productTitle()                
+                VStack(alignment: .leading) {
+                    Text(LocalizeProductCard.skuGlobal(product.globalSKU))
+                    Text(LocalizeProductCard.skuLocal(product.localSKU))
                 }
-                .frame(height: 38)
+                .frame(height: Layout.Title.skuTextHeight)
                 .font(.titleSFProRegular14())
                 .foregroundStyle(Color.vlColor.textPrimary)
                 Spacer()
             }
-            .frame(height: 91)
+            .frame(height: Layout.Title.height)
             .frame(maxWidth: .infinity, alignment: .leading)
-            Button{
-                //action
+            
+            Button {
+                // TODO: Implement menu button action
             } label: {
                 Image(CustomImage.burgerPoints.rawValue)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
-                
+                    .frame(width: Layout.Menu.iconSize, height: Layout.Menu.iconSize)
             }
-            .frame(width: 32, height: 32)
+            .frame(width: Layout.Menu.buttonSize, height: Layout.Menu.buttonSize)
             .background(Color.vlColor.burgerButton)
-            .clipShape(.rect(cornerRadius: 12))
+            .clipShape(RoundedRectangle(cornerRadius: Layout.Menu.cornerRadius))
         }
-        .frame(height: 152)
-        .padding(.horizontal)
+        .frame(height: Layout.Section.topHeight)
     }
     
+    /// Bottom section of the card showing price details, discounts, and final price.
     private var priceSummary: some View {
-        VStack{
+        VStack {
             PriceSummaryView(
-                text: LocalizeProductCard.price.rawValue,
+                text: LocalizeProductCard.price,
                 priceDetails: product.price,
                 currency: product.currency
             )
             PriceSummaryView(
-                text: LocalizeProductCard.discounts.rawValue,
+                text: LocalizeProductCard.discounts,
                 priceDetails: product.discountPercentage,
                 currency: nil
-                
             )
             PriceSummaryView(
-                text: LocalizeProductCard.priceWithDiscounts.rawValue, priceDetails: product.discountedPrice,
+                text: LocalizeProductCard.priceWithDiscounts,
+                priceDetails: product.discountedPrice,
                 currency: product.currency
             )
         }
-        .frame(height: 70)
-        .padding(.horizontal)
+        .frame(height: Layout.Section.bottomHeight)
+        .padding(.bottom)
     }
-    
-    private func capitalizeFirstLetter(_ input: String) -> String {
-        guard let first = input.first else { return input }
-        return first.uppercased() + input.dropFirst()
-    }
-
 }
 
 #Preview {
     ProductCardView(product: MocData.testProduct)
-        .environment(\.screenWidth, 375)
+        .environment(\.screenWidth, MocData.screenWidth)
 }

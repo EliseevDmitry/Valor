@@ -31,6 +31,12 @@
 		266E23A52DF9D18500D79B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266E239F2DF9D18500D79B04 /* Assets.xcassets */; };
 		26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE72E57758200C1AE4A /* ImageService.swift */; };
 		26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE92E577CB300C1AE4A /* Currency.swift */; };
+		26C1FA642E5DB9AF00E9995A /* DashesLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA632E5DB9AF00E9995A /* DashesLine.swift */; };
+		26C1FA682E5EF6F600E9995A /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA672E5EF6F600E9995A /* StatefulPreviewWrapper.swift */; };
+		26C1FA6A2E5F545500E9995A /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA692E5F545500E9995A /* Extension+String.swift */; };
+		26C1FA6C2E5F565100E9995A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */; };
+		26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */; };
+		26C1FA732E5F6DF900E9995A /* Extension+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA722E5F6DF900E9995A /* Extension+Text.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
 		26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E32DFAB602004ED717 /* Extension+Font.swift */; };
 		26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E52DFABAA9004ED717 /* Extension+Color.swift */; };
@@ -75,6 +81,12 @@
 		266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorIOSApp.swift; sourceTree = "<group>"; };
 		26B31BE72E57758200C1AE4A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		26B31BE92E577CB300C1AE4A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		26C1FA632E5DB9AF00E9995A /* DashesLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashesLine.swift; sourceTree = "<group>"; };
+		26C1FA672E5EF6F600E9995A /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
+		26C1FA692E5F545500E9995A /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProductCard.swift; sourceTree = "<group>"; };
+		26C1FA722E5F6DF900E9995A /* Extension+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Text.swift"; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
 		26DBD6E22DFAB576004ED717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26DBD6E32DFAB602004ED717 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
@@ -203,9 +215,11 @@
 				26DBD6E32DFAB602004ED717 /* Extension+Font.swift */,
 				262E4E1A2DFEE96F0001E1C0 /* Extension+Product.swift */,
 				262E4E1C2DFEFB050001E1C0 /* Extension+ProductManager.swift */,
+				26C1FA692E5F545500E9995A /* Extension+String.swift */,
 				2632DA722E55CC9A0081D3D8 /* Extension+UINavigationBar.swift */,
 				26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */,
 				262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */,
+				26C1FA722E5F6DF900E9995A /* Extension+Text.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 		266E23A62DF9D1F500D79B04 /* Valor */ = {
 			isa = PBXGroup;
 			children = (
+				26C1FA6F2E5F6CE700E9995A /* Localizable */,
 				26DBD6E22DFAB576004ED717 /* Info.plist */,
 				266E23AA2DF9D22C00D79B04 /* App */,
 				26DBD6FC2DFB3A51004ED717 /* Router */,
@@ -283,6 +298,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		26C1FA6F2E5F6CE700E9995A /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */,
+				26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		26DBD6E12DFAB53B004ED717 /* CustomFonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +326,7 @@
 				26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */,
 				26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */,
 				26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */,
+				26C1FA632E5DB9AF00E9995A /* DashesLine.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -319,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				26DBD6F62DFAEE65004ED717 /* MocData.swift */,
+				26C1FA672E5EF6F600E9995A /* StatefulPreviewWrapper.swift */,
 			);
 			path = MOC;
 			sourceTree = "<group>";
@@ -408,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C1FA6C2E5F565100E9995A /* Localizable.xcstrings in Resources */,
 				26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */,
 				26DBD6E82DFABDB3004ED717 /* SF-Pro-Display-Regular.otf in Resources */,
 				266E23A52DF9D18500D79B04 /* Assets.xcassets in Resources */,
@@ -421,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C1FA6A2E5F545500E9995A /* Extension+String.swift in Sources */,
 				26EE67B52E581DD300BDA0F1 /* PasteboardManager.swift in Sources */,
 				262E4E1D2DFEFB050001E1C0 /* Extension+ProductManager.swift in Sources */,
 				262E4E152DFEC0FD0001E1C0 /* Extension+URLResponse.swift in Sources */,
@@ -428,6 +456,7 @@
 				26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */,
 				264D211E2DF9E58B00F0A179 /* LoadingCircleView.swift in Sources */,
 				26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */,
+				26C1FA642E5DB9AF00E9995A /* DashesLine.swift in Sources */,
 				262C68F12DFDC0C50025A57F /* PriceSummaryView.swift in Sources */,
 				266E23A22DF9D18500D79B04 /* RoutingView.swift in Sources */,
 				262E4E192DFED6B70001E1C0 /* ToastView.swift in Sources */,
@@ -439,6 +468,7 @@
 				26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */,
 				266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */,
 				26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */,
+				26C1FA732E5F6DF900E9995A /* Extension+Text.swift in Sources */,
 				262C68F52DFDC7710025A57F /* Extension+EnvironmentValues.swift in Sources */,
 				262E4E212DFEFC1C0001E1C0 /* ProductViewModel.swift in Sources */,
 				26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */,
@@ -448,8 +478,10 @@
 				2632DA732E55CC9A0081D3D8 /* Extension+UINavigationBar.swift in Sources */,
 				26DBD6F52DFAE881004ED717 /* ProductsView.swift in Sources */,
 				262E4E132DFEC01C0001E1C0 /* NetworkMonitor.swift in Sources */,
+				26C1FA682E5EF6F600E9995A /* StatefulPreviewWrapper.swift in Sources */,
 				26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */,
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
+				26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */,
 				26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */,
 				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
@@ -523,6 +555,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -579,6 +612,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

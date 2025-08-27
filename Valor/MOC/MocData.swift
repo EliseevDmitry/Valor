@@ -18,4 +18,6 @@ struct MocData {
         thumbnail: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
         currency: .USD
     )
+    
+    static let screenWidth: CGFloat = 375
 }

@@ -7,16 +7,13 @@
 
 import SwiftUI
 
-/*
- Требование: "Интерфейс должен маĸсимально точно соответствовать маĸету"
- Использование - magic numbers - плохая практика, старался не прибегать,
- или минимизировать их использование (сложно было понять термин - маĸсимально точно).
- Теоретически можно было - перенести всю геометрию Figma в текущих размерах в уравнения,
- через GR при старте приложения считать wight и height (конкретного устройства)
- и через систему уравнений - пересчитывать интерфейс (максимальное масштабирование под устройство).
- */
-
+/// A SwiftUI view that displays the product name and total price with a visual dashed line separator.
+/// Supports displaying either a formatted price or a percentage value, depending on the provided data.
+/// Used in product lists retrieved from the network or local storage.
 struct PriceSummaryView: View {
+    private enum Layout {
+        static let dashOffsetY: CGFloat = -4
+    }
     let text: String
     let priceDetails: Double
     let currency: Currency?
@@ -26,6 +23,8 @@ struct PriceSummaryView: View {
                 Text("\(text) ")
                     .font(.titleABeeZeeRegular14())
                     .foregroundStyle(Color.vlColor.titlePriceSummary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                     .background(Color.white)
                 Spacer()
                 Text(formattedPriceText)
@@ -34,7 +33,7 @@ struct PriceSummaryView: View {
                     .background(Color.vlColor.vlBackground)
             }
             DashesLine()
-                .offset(CGSize(width: 0, height: -4))
+                .offset(y: Layout.dashOffsetY)
                 .zIndex(-1)
                 .foregroundStyle(Color.vlColor.dashesLine)
         }
@@ -46,25 +45,6 @@ struct PriceSummaryView: View {
         } else {
             return priceDetails.formattedPercentage()
         }
-    }
-}
-
-struct DashesLine: View {
-    @Environment(\.screenWidth) private var screenWidth
-    let dashCount = 35
-    let gapCount = 34
-    let lineHeight: CGFloat = 1
-    let cornerRadius: CGFloat = 0.5
-    var body: some View {
-        let dashWidth = (screenWidth - 32) / (CGFloat(dashCount) + CGFloat(gapCount) / 2)
-        let gapWidth = dashWidth / 2
-        HStack(spacing: gapWidth) {
-            ForEach(0..<dashCount, id: \.self) { _ in
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .frame(width: dashWidth, height: lineHeight)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

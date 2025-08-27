@@ -39,7 +39,8 @@ struct PricesAndDiscountsView: View {
     private func content(for state: StatePricesView) -> some View {
         switch state {
         case .loading:
-            LoadingCircleView(isAnimating: $isAnimating)
+            //LoadingCircleView(isAnimating: $isAnimating)
+            LoadingCircleView()
         case .empty:
             emptyStateView(imageName: state.imageName)
         case .error:

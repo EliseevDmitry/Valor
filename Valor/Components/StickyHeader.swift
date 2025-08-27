@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-
+/// A SwiftUI view presenting a segmented control pinned to the toolbar during scrolling.
+/// Uses a binding to track the selected segment and invokes a provided action on selection changes.
+/// Custom styling of the UISegmentedControl is implemented via an extension applied during initialization.
 struct StickyHeader: View {
     @Binding var selectedSegment: PickerSegment
     let action: (PickerSegment) -> Void
