@@ -21,28 +21,3 @@ enum CustomImage: String {
     case photo = "photo"
     case backButton = "chevron.left"
 }
-
-//Routing View
-enum LocalizeRouting {
-    static let title = "Prices and Discounts"
-}
-
-//ProductsView
-enum LocalizeProducts: String {
-    case all = "Все"
-    case withoutPrice = "Товары без цены"
-    case copyItem = "Скопировать артикул"
-    case copyVlItem = "Скопировать артикул VL"
-    case cancel = "Отмена"
-    case copy = "Скопированный ID = "
-}
-
-//PricesAndDiscountsView
-enum LocalizePrices: String {
-    case notFound = "Ничего не найдено"
-    case fail = "Что-то пошло не так"
-    case tryLater = "Попробуйте позднее"
-    case update = "Обновить"
-}
-
-//

@@ -39,7 +39,6 @@ struct PricesAndDiscountsView: View {
     private func content(for state: StatePricesView) -> some View {
         switch state {
         case .loading:
-            //LoadingCircleView(isAnimating: $isAnimating)
             LoadingCircleView()
         case .empty:
             emptyStateView(imageName: state.imageName)
@@ -51,7 +50,7 @@ struct PricesAndDiscountsView: View {
     private func emptyStateView(imageName: String?) -> some View {
         VStack(spacing: 12) {
             stateImage(imageName)
-            Text(LocalizePrices.notFound.rawValue)
+            Text(LocalizePrices.notFound)
                 .font(.titleSFProRegular18())
                 .foregroundStyle(Color.vlColor.text)
         }
@@ -62,15 +61,15 @@ struct PricesAndDiscountsView: View {
         VStack(spacing: 16) {
             stateImage(imageName)
             VStack(spacing: 8) {
-                Text(LocalizePrices.fail.rawValue)
+                Text(LocalizePrices.fail)
                     .font(.titleABeeZeeRegular18())
                     .foregroundStyle(Color.vlColor.text)
-                Text(LocalizePrices.tryLater.rawValue)
+                Text(LocalizePrices.tryLater)
                     .font(.titleABeeZeeRegular18())
                     .foregroundStyle(Color.vlColor.textPrimary)
             }
             PrimaryButton(
-                title: LocalizePrices.update.rawValue,
+                title: LocalizePrices.update,
                 iconName: CustomImage.button.rawValue,
                 action: { await viewModel.loadData(router: router)}
             )

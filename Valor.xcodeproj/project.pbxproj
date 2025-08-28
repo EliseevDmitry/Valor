@@ -37,6 +37,10 @@
 		26C1FA6C2E5F565100E9995A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */; };
 		26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */; };
 		26C1FA732E5F6DF900E9995A /* Extension+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA722E5F6DF900E9995A /* Extension+Text.swift */; };
+		26C1FC032E6004EA00E9995A /* LocalizeRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC022E6004EA00E9995A /* LocalizeRouting.swift */; };
+		26C1FC052E6006C000E9995A /* LocalizePrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC042E6006C000E9995A /* LocalizePrices.swift */; };
+		26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */; };
+		26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC0A2E60C37200E9995A /* URLProducts.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
 		26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E32DFAB602004ED717 /* Extension+Font.swift */; };
 		26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E52DFABAA9004ED717 /* Extension+Color.swift */; };
@@ -87,6 +91,10 @@
 		26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProductCard.swift; sourceTree = "<group>"; };
 		26C1FA722E5F6DF900E9995A /* Extension+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Text.swift"; sourceTree = "<group>"; };
+		26C1FC022E6004EA00E9995A /* LocalizeRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeRouting.swift; sourceTree = "<group>"; };
+		26C1FC042E6006C000E9995A /* LocalizePrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizePrices.swift; sourceTree = "<group>"; };
+		26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProducts.swift; sourceTree = "<group>"; };
+		26C1FC0A2E60C37200E9995A /* URLProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProducts.swift; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
 		26DBD6E22DFAB576004ED717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26DBD6E32DFAB602004ED717 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
@@ -216,10 +224,10 @@
 				262E4E1A2DFEE96F0001E1C0 /* Extension+Product.swift */,
 				262E4E1C2DFEFB050001E1C0 /* Extension+ProductManager.swift */,
 				26C1FA692E5F545500E9995A /* Extension+String.swift */,
+				26C1FA722E5F6DF900E9995A /* Extension+Text.swift */,
 				2632DA722E55CC9A0081D3D8 /* Extension+UINavigationBar.swift */,
 				26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */,
 				262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */,
-				26C1FA722E5F6DF900E9995A /* Extension+Text.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -302,7 +310,10 @@
 			isa = PBXGroup;
 			children = (
 				26C1FA6B2E5F565100E9995A /* Localizable.xcstrings */,
+				26C1FC042E6006C000E9995A /* LocalizePrices.swift */,
 				26C1FA702E5F6D0400E9995A /* LocalizeProductCard.swift */,
+				26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */,
+				26C1FC022E6004EA00E9995A /* LocalizeRouting.swift */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -336,6 +347,7 @@
 			children = (
 				26DBD6F02DFACE5D004ED717 /* ProductsResponse.swift */,
 				26B31BE92E577CB300C1AE4A /* Currency.swift */,
+				26C1FC0A2E60C37200E9995A /* URLProducts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -463,8 +475,11 @@
 				262C68D72DFD93A90025A57F /* RemoteImage.swift in Sources */,
 				264D21192DF9D63200F0A179 /* PricesAndDiscountsView.swift in Sources */,
 				26EE67B12E58155400BDA0F1 /* Extension+UISegmentedControl.swift in Sources */,
+				26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */,
 				26DBD6FE2DFB3A67004ED717 /* Router.swift in Sources */,
+				26C1FC052E6006C000E9995A /* LocalizePrices.swift in Sources */,
 				264D211C2DF9DC2600F0A179 /* CustomImage.swift in Sources */,
+				26C1FC032E6004EA00E9995A /* LocalizeRouting.swift in Sources */,
 				26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */,
 				266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */,
 				26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */,
@@ -486,6 +501,7 @@
 				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
 				262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */,
+				26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */,
 				262E4E1B2DFEE96F0001E1C0 /* Extension+Product.swift in Sources */,
 				26DBD6F72DFAEE65004ED717 /* MocData.swift in Sources */,
 				26EE67BE2E58923900BDA0F1 /* PrimaryButton.swift in Sources */,

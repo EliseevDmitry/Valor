@@ -23,7 +23,7 @@ final class NetworkMonitor: INetworkMonitor {
     func isInternetAvailable() async -> Bool {
         let monitorStatus = await checkInternetConnection()
         if !monitorStatus { return false }
-        guard let url = URLProducts.products.url else {
+        guard let url = URLProducts.allProducts.url else {
             return false
         }
         var request = URLRequest(url: url)

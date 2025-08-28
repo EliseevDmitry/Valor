@@ -7,24 +7,7 @@
 
 import Foundation
 
-enum URLProducts {
-    case products
-    
-    private var urlComponents: URLComponents {
-        var components = URLComponents()
-        switch self {
-        case .products:
-            components.scheme = "https"
-            components.host = "dummyjson.com"
-            components.path = "/products"
-        }
-        return components
-    }
-    
-    var url: URL? {
-        urlComponents.url
-    }
-}
+
 
 protocol IRemoteProductManager {
     func fetchData(url: URL?) async throws -> Data
@@ -34,7 +17,7 @@ protocol IRemoteProductManager {
 //MARK: - Public functions
 extension IRemoteProductManager {
     func fetchData() async throws -> Data {
-        try await fetchData(url: URLProducts.products.url)
+        try await fetchData(url: URLProducts.allProducts.url)//URLProducts.products(limit: 5, skip: 0).url)
     }
 }
 

@@ -73,7 +73,7 @@ struct ProductsView: View {
             if viewModel.showToast {
                 ToastView(
                     showToast: $viewModel.showToast,
-                    message: viewModel.showID()
+                    sku: viewModel.showID()
                 )
             }
         }

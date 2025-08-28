@@ -7,6 +7,61 @@
     "%@ " : {
 
     },
+    "copyVlItem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy internal item number"
+          }
+        }
+      }
+    },
+    "prices.fail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong"
+          }
+        }
+      }
+    },
+    "prices.notFound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing Found"
+          }
+        }
+      }
+    },
+    "prices.tryLater" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please try again later"
+          }
+        }
+      }
+    },
+    "prices.update" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Update"
+          }
+        }
+      }
+    },
     "product.discounts" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -58,6 +113,83 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Art. %@"
+          }
+        }
+      }
+    },
+    "products.all" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Products"
+          }
+        }
+      }
+    },
+    "products.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "products.copy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copied ID = %@"
+          }
+        }
+      }
+    },
+    "products.copyItem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy item number"
+          }
+        }
+      }
+    },
+    "products.copyVlItem" : {
+      "comment" : "ConfirmationDialog button title for copying the internal item number (index 1)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy internal item number"
+          }
+        }
+      }
+    },
+    "products.withoutPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Without Price"
+          }
+        }
+      }
+    },
+    "routing.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prices and Discounts"
           }
         }
       }

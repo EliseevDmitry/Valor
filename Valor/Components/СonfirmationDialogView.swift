@@ -13,13 +13,13 @@ struct СonfirmationDialogView: View {
     let copyGlobalSKU: () -> Void
     let copyLocalSKU: () -> Void
     var body: some View {
-        Button(LocalizeProducts.copyItem.rawValue) {
+        Button(LocalizeProducts.copyItem) {
             copyGlobalSKU()
         }
-        Button(LocalizeProducts.copyVlItem.rawValue) {
+        Button(LocalizeProducts.copyVlItem) {
             copyLocalSKU()
         }
-        Button(LocalizeProducts.cancel.rawValue, role: .cancel) {}
+        Button(LocalizeProducts.cancel, role: .cancel) {}
     }
 }
 

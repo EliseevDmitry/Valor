@@ -9,6 +9,9 @@
 import UIKit
 import SwiftUI
 
+/// Applies a custom style to all UISegmentedControl instances using the appearance proxy.
+/// Sets the selected segment tint color to white and customizes title text attributes
+/// for both selected and normal states with specific colors and fonts.
 extension UISegmentedControl {
     static func applyCustomStyle() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .white

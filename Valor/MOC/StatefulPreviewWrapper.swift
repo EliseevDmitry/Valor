@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// A generic SwiftUI wrapper that provides a mutable state value for preview purposes.
+/// Allows embedding views requiring a Binding by managing local @State internally.
+/// Simplifies testing and previewing views with @Binding properties in Xcode previews.
 struct StatefulPreviewWrapper<Value, Content: View>: View {
     @State private var value: Value
     private let content: (Binding<Value>) -> Content
