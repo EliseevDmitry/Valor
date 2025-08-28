@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// Provides custom text styles for consistent UI design.
+/// `categoryLabelStyle()` styles text as a labeled category with padding and background.
+/// `productTitle()` styles text as a product title with font and truncation settings.
 extension Text {
     func categoryLabelStyle() -> some View {
         self

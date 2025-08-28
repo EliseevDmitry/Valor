@@ -14,7 +14,9 @@ enum AppRoute: Hashable {
     case pricesAndDiscounts(StatePricesView)
 }
 
-//
+/// Provides view mapping and navigation behavior for each AppRoute case.
+/// `destinationView` returns the corresponding screen.
+/// `showsBackButton` defines back button visibility based on route state.
 extension AppRoute {
     @ViewBuilder
     var destinationView: some View {

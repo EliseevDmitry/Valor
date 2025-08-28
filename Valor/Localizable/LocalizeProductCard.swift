@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// Provides localized strings and formatted messages for product card details.
+/// Includes SKU prefixes, price labels, and discount-related texts.
+/// Supports dynamic SKU insertion with formatted string methods.
 enum LocalizeProductCard {
     static func skuGlobal(_ sku: String) -> String {
         String(

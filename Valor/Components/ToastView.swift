@@ -11,7 +11,7 @@ import SwiftUI
 /// Shows a brief message (in this case, the product's article number when copied to the clipboard).
 struct ToastView: View {
     @Binding var showToast: Bool
-    let message: String
+    let sku: String
     
     private enum Layout {
         static let horizontalPadding: CGFloat = 16
@@ -23,7 +23,7 @@ struct ToastView: View {
     }
     
     var body: some View {
-        Text(LocalizeProducts.copy.rawValue + message)
+        Text(LocalizeProducts.copy(sku))
             .font(.titleSFProRegular16())
             .padding(.horizontal, Layout.horizontalPadding)
             .padding(.vertical, Layout.verticalPadding)
@@ -40,6 +40,6 @@ struct ToastView: View {
 
 #Preview {
     StatefulPreviewWrapper(true) { binding in
-        ToastView(showToast: binding, message: "Test message")
+        ToastView(showToast: binding, sku: "Test message")
     }
 }

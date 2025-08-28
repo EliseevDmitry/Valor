@@ -24,10 +24,10 @@ struct StickyHeader: View {
     var body: some View {
         VStack {
             Picker("", selection: $selectedSegment) {
-                Text(LocalizeProducts.all.rawValue)
+                Text(LocalizeProducts.all)
                     .tag(PickerSegment.zero)
                 
-                Text(LocalizeProducts.withoutPrice.rawValue)
+                Text(LocalizeProducts.withoutPrice)
                     .tag(PickerSegment.one)
             }
             .pickerStyle(.segmented)

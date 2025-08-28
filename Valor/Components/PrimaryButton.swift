@@ -51,7 +51,7 @@ struct PrimaryButton: View {
 
 #Preview {
     PrimaryButton(
-        title: LocalizePrices.update.rawValue,
+        title: LocalizePrices.update,
         iconName: CustomImage.button.rawValue,
         action: { print("Tap")}
     )

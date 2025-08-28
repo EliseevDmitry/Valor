@@ -39,6 +39,9 @@ struct PriceSummaryView: View {
         }
     }
     
+    /// Returns a formatted string based on the available data.
+    /// Formats the value as a price if a currency is provided; otherwise, as a percentage.
+    /// Used for displaying price or discount information in the summary view.
     private var formattedPriceText: String {
         if let currency {
             return priceDetails.formattedPrice(currencyCode: currency, convertFromBase: true)
