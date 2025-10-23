@@ -14,14 +14,19 @@ enum CoreDataConstants {
 
 protocol ILocalProductManager {
     func addProducts(_ products: [Product]) -> Bool
-    func getImageURLByID(idProduct: Int) -> URL?
-    func getProducts() -> [Product]
-    func productsIsEmpty() throws -> Bool
+    func getProducts<T: ILocalProduct>() async throws -> [T]
+   // func getImageURLByID(idProduct: Int) -> URL?
+    
+   // func productsIsEmpty() throws -> Bool
     //удалить функцию
-    func deleteAllProducts() -> Bool
+   // func deleteAllProducts() -> Bool
 }
 
 final class LocalProductManager: ILocalProductManager {
+
+    
+
+    
     private let container: NSPersistentContainer
     
     init(container: NSPersistentContainer = NSPersistentContainer(name: CoreDataConstants.modelName)) {
@@ -45,51 +50,88 @@ extension LocalProductManager {
             newProduct.id = Int16(product.id)
             newProduct.title = product.title
             newProduct.category = product.category
-            newProduct.price = product.price
-            newProduct.discountPercentage = product.discountPercentage
-            newProduct.thumbnail = product.thumbnail
             newProduct.globalSKU = product.globalSKU
             newProduct.localSKU = product.localSKU
-            newProduct.currency = product.currency.rawValue
         }
         return saveData()
     }
 
     
     //в теории метод возвращает URL - который хранится в файл менеджере
-    func getImageURLByID(idProduct: Int) -> URL? {
-        let request = NSFetchRequest<ProductModel>(entityName: CoreDataConstants.modelName)
-        request.predicate = NSPredicate(format: "id == %d", Int16(idProduct))
-            request.fetchLimit = 1
-            do {
-                guard let productModel = try container.viewContext.fetch(request).first,
-                      let path = productModel.thumbnail else {
-                    return nil
-                }
-                return URL(string: path)
-            } catch {
-                print("Error fetching product by id: \(error)")
-                return nil
-            }
-    }
+//    func getImageURLByID(idProduct: Int) -> URL? {
+//        let request = NSFetchRequest<ProductModel>(entityName: CoreDataConstants.modelName)
+//        request.predicate = NSPredicate(format: "id == %d", Int16(idProduct))
+//            request.fetchLimit = 1
+//            do {
+//                guard let productModel = try container.viewContext.fetch(request).first,
+//                      let path = productModel.thumbnail else {
+//                    return nil
+//                }
+//                return URL(string: path)
+//            } catch {
+//                print("Error fetching product by id: \(error)")
+//                return nil
+//            }
+//    }
     
-    func getProducts() -> [Product] {
-        return fechProducts().compactMap { productModel in
+    //получаем данные из CoreData (должен быть бэграунд поток)
+    func getProducts<T: ILocalProduct>() async throws -> [T] {
+        let products = try await getProducts()
+        return products.compactMap { products in
             guard
-                let title = productModel.title,
-                let category = productModel.category,
-                let thumbnail = productModel.thumbnail
+                let title = products.title,
+                let category = products.category,
+                let url = products.url,
+                let globalSKU = products.globalSKU,
+                let localSKU = products.localSKU
             else { return nil }
-            return Product(
-                id: Int(productModel.id),
+            return T(
+                id: Int(products.id),
                 title: title,
                 category: category,
-                price: productModel.price,
-                discountPercentage: productModel.discountPercentage,
-                thumbnail: thumbnail
+                url: url,
+                globalSKU: globalSKU,
+                localSKU: localSKU
             )
         }
+//        return fechProducts().compactMap { productModel in
+//            guard
+//                let title = productModel.title,
+//                let category = productModel.category,
+//                let url = productModel.url,
+//                let globalSKU = productModel.globalSKU,
+//                let localSKU = productModel.localSKU
+//            else { return nil }
+//            return LocalProduct(
+//                id: Int(productModel.id),
+//                title: title,
+//                category: category,
+//                url: url,
+//                globalSKU: globalSKU,
+//                localSKU: localSKU
+//            )
+//        }
     }
+    
+//    func getProducts() -> [Product] {
+//        return fechProducts().compactMap { productModel in
+//            guard
+//                let title = productModel.title,
+//                let category = productModel.category,
+//                let thumbnail = productModel.url?.absoluteString
+//            else { return nil }
+//            return Product(
+//                id: Int(productModel.id),
+//                title: title,
+//                category: category,
+//                price: nil,
+//                discountPercentage: nil,
+//                thumbnail: thumbnail,
+//                globalSKU: productModel.globalSKU,
+//                localSKU: productModel.localSKU
+//            )
+//        }
+//    }
     
     func productsIsEmpty() throws -> Bool {
         let request = NSFetchRequest<ProductModel>(entityName: CoreDataConstants.modelName)
@@ -153,5 +195,38 @@ extension LocalProductManager {
     }
     
     
+    
+    //запрос в CoreData в фоновом потоке
+    private func fetchProducts(completion: @escaping (Result<[ProductModel], Error>) -> Void) {
+        container.performBackgroundTask { context in
+            let request = NSFetchRequest<ProductModel>(entityName: CoreDataConstants.modelName)
+            do {
+                let products = try context.fetch(request)
+                completion(.success(products))
+            } catch let error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
+}
+
+
+extension LocalProductManager {
+    
+    //обертка fetchProducts в симантике async/await
+    func getProducts() async throws -> [ProductModel] {
+     try await withCheckedThrowingContinuation { continuation in
+            fetchProducts { result in
+                switch result {
+                case .success(let products):
+                    continuation.resume(returning: products)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
     
 }

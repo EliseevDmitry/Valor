@@ -17,16 +17,33 @@ struct LoadingCircleView: View {
         static let trimTo: CGFloat = 0.5
         static let lineWidth: CGFloat = 5
         static let size: CGFloat = 32
+        static let fullRotationDegrees: Double = 360.0
+        static let noRotationDegrees: Double = 0.0
         static let animationDuration: Double = 1
         static let animationRepeatForever = true
         static let animationAutoreverses = false
     }
     var body: some View {
         Circle()
-            .trim(from: Layout.trimFrom, to: Layout.trimTo)
-            .stroke(Color.vlColor.buttons, lineWidth: Layout.lineWidth)
-            .frame(width: Layout.size, height: Layout.size)
-            .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+            .trim(
+                from: Layout.trimFrom,
+                to: Layout.trimTo
+            )
+            .stroke(
+                Color.vlColor.buttons,
+                lineWidth: Layout.lineWidth
+            )
+            .frame(
+                width: Layout.size,
+                height: Layout.size
+            )
+            .rotationEffect(
+                Angle(
+                    degrees: isAnimating ?
+                    Layout.fullRotationDegrees :
+                        Layout.noRotationDegrees
+                )
+            )
             .animation(
                 Animation.linear(duration: Layout.animationDuration)
                     .repeatForever(autoreverses: Layout.animationAutoreverses),

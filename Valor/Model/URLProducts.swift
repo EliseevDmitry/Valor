@@ -18,7 +18,6 @@ enum URLProducts {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "dummyjson.com"
-        
         switch self {
         case .allProducts:
             components.path = "/products"
@@ -29,7 +28,6 @@ enum URLProducts {
                 URLQueryItem(name: "skip", value: "\(skip)")
             ]
         }
-        
         return components
     }
     

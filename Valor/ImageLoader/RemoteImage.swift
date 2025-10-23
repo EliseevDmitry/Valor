@@ -28,5 +28,8 @@ struct RemoteImage: View {
 }
 
 #Preview {
-    RemoteImage(url: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp", contentMode: .fill)
+    RemoteImage(
+        url: MocData.testProduct.thumbnail,
+        contentMode: .fill
+    )
 }

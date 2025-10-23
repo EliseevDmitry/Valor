@@ -20,11 +20,14 @@ struct Product: Codable, Identifiable {
     let id: Int
     let title: String
     let category: String
+    
     let price: Double
     let discountPercentage: Double
+    
     let thumbnail: String
     let globalSKU: String
     let localSKU: String
+    
     let currency: Currency
     
     // MARK: - Coding keys for decoding from API

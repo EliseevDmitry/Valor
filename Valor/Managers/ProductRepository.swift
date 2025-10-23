@@ -39,7 +39,8 @@ final class ProductRepository: IProductRepository {
 extension ProductRepository {
     
     func getLocalProducts() -> [Product] {
-        localManager.getProducts()
+       // localManager.getProducts()
+        []
     }
     
     func getRemoteProducts() async throws -> [Product] {
@@ -60,7 +61,7 @@ extension ProductRepository {
     
   
     func delete(){
-      _ = localManager.deleteAllProducts()
+     // _ = localManager.deleteAllProducts()
     }
  
 }
