@@ -31,13 +31,13 @@ final class PricesAndDiscountsViewModel: ObservableObject {
                 router.push(.productsInternet)
             } else {
                 do {
-                    let emptyProducts = try localProductManager.productsIsEmpty()
-                    if emptyProducts {
-                        router.push(.pricesAndDiscounts(.empty))
-                    } else {
-                        router.push(.productsLocal)
-                    }
-                } catch {
+//                    let emptyProducts = try localProductManager.productsIsEmpty()
+//                    if emptyProducts {
+//                        router.push(.pricesAndDiscounts(.empty))
+//                    } else {
+//                        router.push(.productsLocal)
+//                    }
+                } catch let error {
                     router.push(.pricesAndDiscounts(.error))
                 }
             }
@@ -48,7 +48,8 @@ final class PricesAndDiscountsViewModel: ObservableObject {
     extension PricesAndDiscountsViewModel {
         func productsIsEmpty() -> Bool {
             do {
-                return try localProductManager.productsIsEmpty()
+                //return try localProductManager.productsIsEmpty()
+                return true
             } catch {
                 //комментарий
                 return false

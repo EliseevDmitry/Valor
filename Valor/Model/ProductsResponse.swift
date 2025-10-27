@@ -7,6 +7,18 @@
 
 import Foundation
 
+protocol IProduct: Codable, Identifiable {
+    var id: Int { get }
+    var title: String { get }
+    var category: String { get }
+    var price: Double { get }
+    var discountPercentage: Double { get }
+    var thumbnail: String { get }
+    var globalSKU: String { get }
+    var localSKU: String { get }
+    var currency: Currency { get }
+}
+
 // MARK: - Response model
 /// Represents the top-level response from the API containing a list of products.
 struct ProductsResponse: Codable {

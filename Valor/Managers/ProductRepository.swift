@@ -46,7 +46,7 @@ extension ProductRepository {
     func getRemoteProducts() async throws -> [Product] {
         let data = try await remoteManager.fetchData()
         let response = try remoteManager.getProducts(of: ProductsResponse.self, data: data)
-        _ = localManager.addProducts(response.products)
+       // _ = localManager.addProducts(response.products)
         return response.products
     }
     
