@@ -10,7 +10,6 @@
 		260F14792EAA8E1800870BE8 /* LocalProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F14782EAA8E1800870BE8 /* LocalProduct.swift */; };
 		262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C687A2DFD49F50025A57F /* RemoteProductManager.swift */; };
 		262C687E2DFD7BE20025A57F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C687D2DFD7BE20025A57F /* AppDependencies.swift */; };
-		262C68D52DFD90E40025A57F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 262C68D42DFD90E40025A57F /* Kingfisher */; };
 		262C68D72DFD93A90025A57F /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68D62DFD93A90025A57F /* RemoteImage.swift */; };
 		262C68F12DFDC0C50025A57F /* PriceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68F02DFDC0C30025A57F /* PriceSummaryView.swift */; };
 		262C68F52DFDC7710025A57F /* Extension+EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68F42DFDC7710025A57F /* Extension+EnvironmentValues.swift */; };
@@ -42,6 +41,7 @@
 		26C1FC052E6006C000E9995A /* LocalizePrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC042E6006C000E9995A /* LocalizePrices.swift */; };
 		26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */; };
 		26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC0A2E60C37200E9995A /* URLProducts.swift */; };
+		26C3F3692EBAF64D003EAEC8 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
 		26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E32DFAB602004ED717 /* Extension+Font.swift */; };
 		26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E52DFABAA9004ED717 /* Extension+Color.swift */; };
@@ -97,6 +97,7 @@
 		26C1FC042E6006C000E9995A /* LocalizePrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizePrices.swift; sourceTree = "<group>"; };
 		26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProducts.swift; sourceTree = "<group>"; };
 		26C1FC0A2E60C37200E9995A /* URLProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProducts.swift; sourceTree = "<group>"; };
+		26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
 		26DBD6E22DFAB576004ED717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26DBD6E32DFAB602004ED717 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
@@ -130,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				262C68D52DFD90E40025A57F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +145,7 @@
 				26566EEB2E51F53800959D5E /* LocalProductManager.swift */,
 				262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */,
 				26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */,
+				26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -401,7 +402,6 @@
 			);
 			name = Valor;
 			packageProductDependencies = (
-				262C68D42DFD90E40025A57F /* Kingfisher */,
 			);
 			productName = WBPartnersIOS;
 			productReference = 266E23832DF9D12B00D79B04 /* Valor.app */;
@@ -415,7 +415,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					266E23822DF9D12B00D79B04 = {
 						CreatedOnToolsVersion = 16.2;
@@ -432,7 +432,6 @@
 			mainGroup = 266E237A2DF9D12B00D79B04;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				262C68D32DFD90E40025A57F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 266E23842DF9D12B00D79B04 /* Products */;
@@ -502,6 +501,7 @@
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
 				26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */,
 				26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */,
+				26C3F3692EBAF64D003EAEC8 /* FileManagerService.swift in Sources */,
 				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
 				262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */,
@@ -551,6 +551,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = RX923HA2LD;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -574,6 +575,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -615,6 +617,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = RX923HA2LD;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -631,6 +634,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
@@ -645,7 +649,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Valor/Preview Content\"";
-				DEVELOPMENT_TEAM = RX923HA2LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Valor/Info.plist;
@@ -679,7 +682,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Valor/Preview Content\"";
-				DEVELOPMENT_TEAM = RX923HA2LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Valor/Info.plist;
@@ -727,25 +729,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		262C68D32DFD90E40025A57F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.3.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		262C68D42DFD90E40025A57F /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 262C68D32DFD90E40025A57F /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		26566EE22E51838100959D5E /* ProductModel.xcdatamodeld */ = {

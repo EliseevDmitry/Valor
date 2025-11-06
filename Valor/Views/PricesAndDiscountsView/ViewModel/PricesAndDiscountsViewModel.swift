@@ -26,35 +26,22 @@ final class PricesAndDiscountsViewModel: ObservableObject {
         func loadData(router: Router) async {
             router.push(.pricesAndDiscounts(.loading))
             try? await Task.sleep(nanoseconds: 1_000_000_000)
-            let hasInternet = await isInternetAvailable()
-            if hasInternet {
-                router.push(.productsInternet)
-            } else {
-                do {
-//                    let emptyProducts = try localProductManager.productsIsEmpty()
-//                    if emptyProducts {
-//                        router.push(.pricesAndDiscounts(.empty))
-//                    } else {
-//                        router.push(.productsLocal)
-//                    }
-                } catch let error {
-                    router.push(.pricesAndDiscounts(.error))
-                }
+            router.push(.productsInternet)
             }
         }
-    }
 
     // MARK: - Private functions
     extension PricesAndDiscountsViewModel {
-        func productsIsEmpty() -> Bool {
-            do {
-                //return try localProductManager.productsIsEmpty()
-                return true
-            } catch {
-                //комментарий
-                return false
-            }
-        }
+//        func productsIsEmpty() -> Bool {
+//            do {
+//                //return try localProductManager.productsIsEmpty()
+//                return true
+//            } catch {
+//                //комментарий
+//                print("Error")
+//                return false
+//            }
+//        }
         
         
         private func isInternetAvailable() async -> Bool {

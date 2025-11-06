@@ -15,7 +15,7 @@ struct PriceSummaryView: View {
         static let dashOffsetY: CGFloat = -4
     }
     let text: String
-    let priceDetails: Double
+    let priceDetails: Double?
     let currency: Currency?
     var body: some View {
         ZStack(alignment: .bottom){
@@ -43,6 +43,7 @@ struct PriceSummaryView: View {
     /// Formats the value as a price if a currency is provided; otherwise, as a percentage.
     /// Used for displaying price or discount information in the summary view.
     private var formattedPriceText: String {
+        guard let priceDetails = priceDetails else { return "n/a" }
         if let currency {
             return priceDetails.formattedPrice(currencyCode: currency, convertFromBase: true)
         } else {
@@ -54,7 +55,7 @@ struct PriceSummaryView: View {
 #Preview {
     PriceSummaryView(
         text: MocData.testProduct.title,
-        priceDetails: MocData.testProduct.price,
+        priceDetails: MocData.testProduct.price ?? 100,
         currency: MocData.testProduct.currency
     )
     .environment(\.screenWidth, 375)

@@ -5,7 +5,7 @@
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //
 
-import SwiftUICore
+import SwiftUI
 import UIKit
 
 /// Extension to provide a centralized color theme for the application.

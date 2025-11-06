@@ -7,38 +7,44 @@
 
 import Foundation
 
-protocol IProduct: Codable, Identifiable {
-    var id: Int { get }
-    var title: String { get }
-    var category: String { get }
-    var price: Double { get }
-    var discountPercentage: Double { get }
-    var thumbnail: String { get }
-    var globalSKU: String { get }
-    var localSKU: String { get }
+protocol IProduct: Codable, Identifiable, Sendable {
+    var id: Int { get set } //
+    var title: String { get set } //
+    var category: String { get set } //
+    var price: Double? { get set }
+    var discountPercentage: Double? { get set }
+    var thumbnail: String { get set } //url
+    var globalSKU: String { get set } //
+    var localSKU: String { get set } //
     var currency: Currency { get }
+}
+
+
+
+protocol IProductsResponse: Codable {
+    var products: [Product] { get }
 }
 
 // MARK: - Response model
 /// Represents the top-level response from the API containing a list of products.
-struct ProductsResponse: Codable {
+struct ProductsResponse: IProductsResponse {
     let products: [Product]
 }
 
 // MARK: - Product model
 /// Represents a single product with relevant details such as title, category, price, thumbnail, and identifiers.
 /// Provides default values for SKU and currency for easier mock/testing usage.
-struct Product: Codable, Identifiable {
-    let id: Int
-    let title: String
-    let category: String
+struct Product: IProduct {
+    var id: Int
+    var title: String
+    var category: String
     
-    let price: Double
-    let discountPercentage: Double
+    var price: Double?
+    var discountPercentage: Double?
     
-    let thumbnail: String
-    let globalSKU: String
-    let localSKU: String
+    var thumbnail: String
+    var globalSKU: String
+    var localSKU: String
     
     let currency: Currency
     
@@ -97,5 +103,25 @@ struct Product: Codable, Identifiable {
         return (0..<length)
             .map { _ in String(Int.random(in: 0...9)) }
             .joined()
+    }
+    
+    mutating func resetPriceAndDiscount() {
+        self.price = nil
+        self.discountPercentage = nil
+    }
+}
+
+
+extension Product {
+    init(model: any ILocalProduct) {
+        self.id = model.id
+        self.title = model.title
+        self.category = model.category
+        self.price = nil
+        self.discountPercentage = nil
+        self.thumbnail = model.thumbnail
+        self.globalSKU = model.globalSKU
+        self.localSKU = model.localSKU
+        self.currency = .KZT 
     }
 }

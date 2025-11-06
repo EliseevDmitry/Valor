@@ -5,7 +5,7 @@
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //
 
-import SwiftUICore
+import SwiftUI
 import UIKit
 
 /// Provides SwiftUI `Font` wrappers for custom `UIFont`s used throughout the app.

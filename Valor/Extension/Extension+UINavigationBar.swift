@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftUICore
+import SwiftUI
 
 /// Extension to UINavigationBar providing a centralized method to apply the app’s custom visual style.
 /// Configures background color, shadow, and title text attributes for a consistent appearance across all navigation bars.

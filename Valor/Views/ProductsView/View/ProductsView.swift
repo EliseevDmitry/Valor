@@ -37,7 +37,8 @@ struct ProductsView: View {
         .background(Color.vlColor.background)
         .dynamicTypeSize(.xLarge)
         .onAppear{
-            viewModel.getProducts()
+           viewModel.getProducts()
+           //viewModel.delete()
         }
     }
     
@@ -47,7 +48,7 @@ struct ProductsView: View {
             viewModel.products,
             id: \.id
         ) {product in
-            ProductCardView(product: product)
+            ProductCardView(product: product, image: viewModel.images[product.id])
                 .padding(.top, 5)
                 .onTapGesture {
                     viewModel.select(product)

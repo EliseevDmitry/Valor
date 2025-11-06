@@ -10,6 +10,7 @@ import SwiftUI
 /// Main product card view component that combines product information and pricing details.
 struct ProductCardView: View {
     let product: Product
+    let image: UIImage?
     
     /// Layout constants grouped by logical UI sections for maintainability and scalability.
     private enum Layout {
@@ -49,7 +50,10 @@ struct ProductCardView: View {
             static let horizontalSpacing: CGFloat = 16
             static let contentPadding: CGFloat = 16
         }
+        
     }
+    
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -66,18 +70,28 @@ struct ProductCardView: View {
     /// Top section of the card displaying product image, category, title, SKU, and menu button.
     private var productInfo: some View {
         HStack(alignment: .top, spacing: Layout.Section.horizontalSpacing) {
-            RemoteImage(url: product.thumbnail, contentMode: .fit)
-                .frame(width: Layout.Image.width, height: Layout.Image.height)
-                .clipShape(RoundedRectangle(cornerRadius: Layout.Image.cornerRadius))
-                .overlay(
-                    RoundedRectangle(cornerRadius: Layout.Image.cornerRadius)
-                        .stroke(Color.vlColor.background, lineWidth: Layout.Image.borderWidth)
-                )
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(width: Layout.Image.width, height: Layout.Image.height)
+                    .clipShape(RoundedRectangle(cornerRadius: Layout.Image.cornerRadius))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: Layout.Image.cornerRadius)
+                            .stroke(Color.vlColor.background, lineWidth: Layout.Image.borderWidth)
+                    )
+            }
+            //            RemoteImage(url: product.thumbnail, contentMode: .fit)
+            //                .frame(width: Layout.Image.width, height: Layout.Image.height)
+            //                .clipShape(RoundedRectangle(cornerRadius: Layout.Image.cornerRadius))
+            //                .overlay(
+            //                    RoundedRectangle(cornerRadius: Layout.Image.cornerRadius)
+            //                        .stroke(Color.vlColor.background, lineWidth: Layout.Image.borderWidth)
+            //                )
             VStack(alignment: .leading, spacing: Layout.Title.verticalSpacing) {
                 Text(product.category.capitalizingFirstLetter)
                     .categoryLabelStyle()
                 Text(product.title)
-                    .productTitle()                
+                    .productTitle()
                 VStack(alignment: .leading) {
                     Text(LocalizeProductCard.skuGlobal(product.globalSKU))
                     Text(LocalizeProductCard.skuLocal(product.localSKU))
@@ -129,7 +143,7 @@ struct ProductCardView: View {
     }
 }
 
-#Preview {
-    ProductCardView(product: MocData.testProduct)
-        .environment(\.screenWidth, MocData.screenWidth)
-}
+//#Preview {
+//    ProductCardView(product: MocData.testProduct)
+//        .environment(\.screenWidth, MocData.screenWidth)
+//}

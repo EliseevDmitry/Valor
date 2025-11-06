@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 enum PickerSegment: Int {
     case zero = 0
     case one = 1
@@ -18,7 +16,10 @@ final class ProductViewModel: ObservableObject {
     
     private var productManager: IProductRepository
     private var pasteboardManager: IPasteboardManager
-    @Published var products: [Product] = []
+    
+    
+    @Published private(set) var products: [Product] = []
+    @Published private(set) var images: [Int : UIImage] = [:] // [product.id : image]
     
     @Published var selectedProduct: Product? = nil
     @Published var showDialog = false
@@ -59,22 +60,25 @@ final class ProductViewModel: ObservableObject {
     func segmentChanged(to segment: PickerSegment, router: Router) {
         switch segment {
         case .zero:
-            break
+            getProducts()
         case .one:
-            break
-            //getLocalProducts(router: router)
+            getLocalData()
         }
     }
     
+    /// сделать allert
     
     func getProducts() {
+        products = []
         Task {
             do {
-                let returnProducts = try await productManager.getProduct()
+                let returnProducts = try await productManager.getProducts(url: URLProducts.allProducts.url)
                 await MainActor.run {
                     self.products = returnProducts.products
-                    self.selectedSegment = returnProducts.segment
+                    let segment = getPickerSegment(isRemote: returnProducts.isRemote)
+                    self.selectedSegment = segment
                 }
+                self.getImages(for: returnProducts.products)
             } catch {
                 print("Ошибка получения данных: \(error)")
             }
@@ -82,13 +86,29 @@ final class ProductViewModel: ObservableObject {
         }
     }
     
-    func getLocalProducts(router: Router) {
-        productManager.delete()
-        let products = productManager.getLocalProducts()
-        if !products.isEmpty {
-            self.products = products
-        } else {
-            router.push(.pricesAndDiscounts(.error))
+    private func getImages(for products: [Product]) {
+        Task.detached {
+            for product in products {
+                do {
+                    if let image = try await self.productManager.getImage(url: product.thumbnail) {
+                        await MainActor.run {
+                            self.images[product.id] = image
+                        }
+                    }
+                } catch {
+                    //print("Ошибка загрузки изображения \(url): \(error)")
+                }
+            }
+        }
+    }
+    
+    func delete(){
+        Task {
+            do {
+                _ = try await productManager.deleteProducts()
+            } catch {
+                
+            }
         }
     }
     
@@ -97,6 +117,33 @@ final class ProductViewModel: ObservableObject {
             showToast = true
             try? await Task.sleep(nanoseconds: 2_000_000_000)
             showToast = false
+        }
+    }
+}
+
+
+extension ProductViewModel {
+    
+    ///
+    func getPickerSegment(isRemote: Bool) -> PickerSegment {
+        switch isRemote {
+        case true:
+            return .zero
+        case false:
+            return .one
+        }
+    }
+    
+    func getLocalData() {
+        guard !products.isEmpty else {
+            getProducts()
+            return
+        }
+       
+        products = products.map { product in
+            var mutableProduct = product
+            mutableProduct.resetPriceAndDiscount()
+            return mutableProduct
         }
     }
 }

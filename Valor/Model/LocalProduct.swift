@@ -11,10 +11,10 @@ protocol ILocalProduct: Codable, Identifiable {
     var id: Int { get }
     var title: String { get }
     var category: String { get }
-    var url: URL { get }
+    var thumbnail: String { get }
     var globalSKU: String { get }
     var localSKU: String { get }
-    init(id: Int, title: String, category: String, url: URL, globalSKU: String, localSKU: String)
+    init(id: Int, title: String, category: String, thumbnail: String, globalSKU: String, localSKU: String)
 }
 
 
@@ -22,7 +22,7 @@ struct LocalProduct: ILocalProduct {
     let id: Int
     let title: String
     let category: String
-    let url: URL
+    let thumbnail: String
     let globalSKU: String
     let localSKU: String
 }
