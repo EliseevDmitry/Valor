@@ -18,10 +18,15 @@ protocol IPasteboardManager {
 /// Clipboard manager implementing IPasteboardManager.
 /// Uses UIPasteboard.general to work with the system-wide iOS clipboard.
 final class PasteboardManager: IPasteboardManager {
-    private var pasteBoard = UIPasteboard.general
+    private var pasteBoard: UIPasteboard
+    
+    init(pasteBoard: UIPasteboard = UIPasteboard.general) {
+        self.pasteBoard = pasteBoard
+    }
 }
 
 // MARK: - Public functions
+
 extension PasteboardManager {
     func copyID(id: String) {
         pasteBoard.string = id

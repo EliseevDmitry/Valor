@@ -8,16 +8,16 @@
 import Foundation
 
 final class PricesAndDiscountsViewModel: ObservableObject {
-        private var networkMonitor: INetworkMonitor
-        private var localProductManager: ILocalProductManager
-        
-        init(
-            networkMonitor: INetworkMonitor = AppDependencies.shared.networkMonitor,
-            localProductManager: ILocalProductManager = AppDependencies.shared.localProductManager
-        ) {
-            self.networkMonitor = networkMonitor
-            self.localProductManager = localProductManager
-        }
+//        private var networkMonitor: INetworkMonitor
+//        private var localProductManager: ILocalProductManager
+//        
+//        init(
+//            networkMonitor: INetworkMonitor = AppDependencies.shared.networkMonitor,
+//            localProductManager: ILocalProductManager = AppDependencies.shared.localProductManager
+//        ) {
+//            self.networkMonitor = networkMonitor
+//            self.localProductManager = localProductManager
+//        }
     }
 
     // MARK: - Public functions
@@ -44,7 +44,7 @@ final class PricesAndDiscountsViewModel: ObservableObject {
 //        }
         
         
-        private func isInternetAvailable() async -> Bool {
-            await networkMonitor.isInternetAvailable()
-        }
+//        private func isInternetAvailable() async -> Bool {
+//            await networkMonitor.isInternetAvailable(url: URLProducts.allProducts.url)
+//        }
     }

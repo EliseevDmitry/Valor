@@ -7,20 +7,20 @@
 
 import Foundation
 
-
-
+/// Interface for fetching remote product data.
 protocol IRemoteProductManager {
     func getEntity<T: Decodable>(of type: T.Type, url: URL?) async throws -> T
     func fetchData(url: URL?) async throws -> Data
 }
 
+/// Network manager for fetching remote data; uses generics to decode JSON into any `Decodable` type.
 final class RemoteProductManager { }
 
 //MARK: - Public functions
 
-/// Extension providing a generic method to decode JSON data into any `Decodable` type.
-/// Simplifies parsing remote product data while preserving type safety and error propagation.
 extension RemoteProductManager: IRemoteProductManager {
+    
+    /// Extension providing a generic method to decode JSON data into any `Decodable` type.
     func getEntity<T: Decodable>(of type: T.Type, url: URL?) async throws -> T {
         let data = try await fetchData(url: url)
         do {
@@ -30,11 +30,8 @@ extension RemoteProductManager: IRemoteProductManager {
             throw error
         }
     }
-}
-
-//MARK: - Private functions
-
-extension RemoteProductManager {
+    
+    /// Fetches raw data asynchronously from a given URL.
     func fetchData(url: URL?) async throws -> Data {
         guard let url = url else {
             throw URLError(.badURL)

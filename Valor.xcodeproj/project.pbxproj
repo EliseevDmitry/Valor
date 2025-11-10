@@ -140,12 +140,12 @@
 		262C68792DFD49D10025A57F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */,
 				26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */,
 				262C687A2DFD49F50025A57F /* RemoteProductManager.swift */,
 				26566EEB2E51F53800959D5E /* LocalProductManager.swift */,
-				262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */,
-				26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */,
 				26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */,
+				26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
