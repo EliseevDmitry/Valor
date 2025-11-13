@@ -1,6 +1,6 @@
 //
 //  ProductManager.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 14.06.2025.
 //

@@ -1,6 +1,6 @@
 //
 //  ProductsResponse.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //
@@ -8,14 +8,14 @@
 import Foundation
 
 protocol IProduct: Codable, Identifiable, Sendable {
-    var id: Int { get set } //
-    var title: String { get set } //
-    var category: String { get set } //
+    var id: Int { get set }
+    var title: String { get set }
+    var category: String { get set }
     var price: Double? { get set }
     var discountPercentage: Double? { get set }
-    var thumbnail: String { get set } //url
-    var globalSKU: String { get set } //
-    var localSKU: String { get set } //
+    var thumbnail: String { get set } // url
+    var globalSKU: String { get set }
+    var localSKU: String { get set }
     var currency: Currency { get }
 }
 

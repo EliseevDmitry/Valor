@@ -1,6 +1,6 @@
 //
 //  InternetManager.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 15.06.2025.
 //

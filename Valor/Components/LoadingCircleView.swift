@@ -1,6 +1,6 @@
 //
 //  LoadingLineView.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 11.06.2025.
 //

@@ -11,7 +11,6 @@ import SwiftUI
 /// Used as a visual separator in the PriceSummaryView component.
 /// Dash and gap widths are dynamically calculated based on screen width and padding.
 struct DashesLine: View {
-    @Environment(\.screenWidth) private var screenWidth
     
     private enum Layout {
         static let dashCount: Int = 35
@@ -24,7 +23,7 @@ struct DashesLine: View {
     private var dashWidth: CGFloat {
         let totalGaps = CGFloat(Layout.dashCount - 1) * Layout.gapRatio
         let totalUnits = CGFloat(Layout.dashCount) + totalGaps
-        let availableWidth = screenWidth - Layout.sidePadding
+        let availableWidth = ScreenApp.width - Layout.sidePadding
         return availableWidth / totalUnits
     }
     
@@ -45,5 +44,4 @@ struct DashesLine: View {
 
 #Preview {
     DashesLine()
-        .environment(\.screenWidth, MocData.screenWidth)
 }

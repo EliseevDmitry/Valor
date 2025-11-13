@@ -26,7 +26,7 @@ final class PricesAndDiscountsViewModel: ObservableObject {
         func loadData(router: Router) async {
             router.push(.pricesAndDiscounts(.loading))
             try? await Task.sleep(nanoseconds: 1_000_000_000)
-            router.push(.productsInternet)
+            router.push(.products)
             }
         }
 

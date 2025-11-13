@@ -1,6 +1,6 @@
 //
-//  ValorIOSApp.swift
-//  ValorIOS
+//  Valor.swift
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 11.06.2025.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ValorIOSApp: App {
+struct Valor: App {
     /// The UINavigationBar appearance configuration has been extracted into an extension
     /// via the static method `applyValorStyle()`. This allows centralized control over the
     /// navigation bar styling and ensures it is applied when the application launches.

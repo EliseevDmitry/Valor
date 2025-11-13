@@ -1,29 +1,15 @@
 //
 //  PricesAndDiscountsView.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 11.06.2025.
 //
 
 import SwiftUI
 
-enum StatePricesView {
-    case error, loading, empty
-    var imageName: String? {
-        switch self {
-        case .error:
-            CustomImage.errorView.rawValue
-        case .empty:
-            CustomImage.emptyView.rawValue
-        case .loading:
-            nil
-        }
-    }
-}
-
+/// - добавить комментарий
 struct PricesAndDiscountsView: View {
     @EnvironmentObject var router: Router
-    @State private var isAnimating = false
     @StateObject private var viewModel = PricesAndDiscountsViewModel()
     var body: some View {
         ZStack {
@@ -33,6 +19,17 @@ struct PricesAndDiscountsView: View {
             }
         }
         .dynamicTypeSize(.xLarge)
+    }
+}
+
+// MARK: - Private functions
+
+extension PricesAndDiscountsView {
+    enum Const {
+        static let emptyStateSpacing: CGFloat = 12
+        static let errorStateMainSpacing: CGFloat = 16
+        static let errorStateInnerSpacing: CGFloat = 8
+        static let errorStatePadding: CGFloat = 16
     }
     
     @ViewBuilder
@@ -48,19 +45,18 @@ struct PricesAndDiscountsView: View {
     }
     
     private func emptyStateView(imageName: String?) -> some View {
-        VStack(spacing: 12) {
+        VStack(spacing: Const.emptyStateSpacing) {
             stateImage(imageName)
             Text(LocalizePrices.notFound)
                 .font(.titleSFProRegular18())
                 .foregroundStyle(Color.vlColor.text)
         }
-        .onAppear { isAnimating = false }
     }
     
     private func errorStateView(imageName: String?) -> some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Const.errorStateMainSpacing) {
             stateImage(imageName)
-            VStack(spacing: 8) {
+            VStack(spacing: Const.errorStateInnerSpacing) {
                 Text(LocalizePrices.fail)
                     .font(.titleABeeZeeRegular18())
                     .foregroundStyle(Color.vlColor.text)
@@ -71,25 +67,31 @@ struct PricesAndDiscountsView: View {
             PrimaryButton(
                 title: LocalizePrices.update,
                 iconName: CustomImage.button.rawValue,
-                action: { await viewModel.loadData(router: router)}
+                // проверить await!!!
+                action: { await viewModel.loadData(router: router) }
             )
         }
-        .padding()
-        .onAppear { isAnimating = false }
+        .padding(Const.errorStatePadding)
     }
     
+    @ViewBuilder
     private func stateImage(_ name: String?) -> some View {
-        Group {
-            if let name { Image(name) }
+        if let name {
+            Image(name)
+        } else {
+            EmptyView()
         }
     }
 }
 
+// MARK: - Prewiew
+
 #Preview {
-    NavigationView(content: {
+    NavigationView {
         PricesAndDiscountsView()
+            .environmentObject(Router())
             .navigationTitle(LocalizeRouting.title)
             .navigationBarTitleDisplayMode(.inline)
             .ignoresSafeArea(edges: .bottom)
-    })
+    }
 }

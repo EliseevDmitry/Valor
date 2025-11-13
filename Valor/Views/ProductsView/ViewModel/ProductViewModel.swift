@@ -1,6 +1,6 @@
 //
 //  ProductViewModel.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 15.06.2025.
 //
@@ -69,7 +69,7 @@ final class ProductViewModel: ObservableObject {
     /// сделать allert
     
     func getProducts() {
-        products = []
+       // products = []
         Task {
             do {
                 let returnProducts = try await productManager.getProducts(url: URLProducts.allProducts.url)

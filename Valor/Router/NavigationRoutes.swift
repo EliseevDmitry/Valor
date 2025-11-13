@@ -9,8 +9,7 @@ import SwiftUI
 
 /// Represents all possible screens and navigation routes in the app.
 enum AppRoute: Hashable {
-    case productsInternet
-    case productsLocal
+    case products
     case pricesAndDiscounts(StatePricesView)
 }
 
@@ -21,9 +20,7 @@ extension AppRoute {
     @ViewBuilder
     var destinationView: some View {
         switch self {
-        case .productsInternet:
-            ProductsView()
-        case .productsLocal:
+        case .products:
             ProductsView()
         case .pricesAndDiscounts:
             PricesAndDiscountsView()

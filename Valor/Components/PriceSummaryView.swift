@@ -1,6 +1,6 @@
 //
 //  PriceSummaryView.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 14.06.2025.
 //
@@ -58,6 +58,5 @@ struct PriceSummaryView: View {
         priceDetails: MocData.testProduct.price ?? 100,
         currency: MocData.testProduct.currency
     )
-    .environment(\.screenWidth, 375)
     .padding(.horizontal)
 }

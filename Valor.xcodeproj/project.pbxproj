@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		260F14792EAA8E1800870BE8 /* LocalProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260F14782EAA8E1800870BE8 /* LocalProduct.swift */; };
 		262C687B2DFD49F50025A57F /* RemoteProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C687A2DFD49F50025A57F /* RemoteProductManager.swift */; };
-		262C687E2DFD7BE20025A57F /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C687D2DFD7BE20025A57F /* AppDependencies.swift */; };
-		262C68D72DFD93A90025A57F /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68D62DFD93A90025A57F /* RemoteImage.swift */; };
 		262C68F12DFDC0C50025A57F /* PriceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68F02DFDC0C30025A57F /* PriceSummaryView.swift */; };
-		262C68F52DFDC7710025A57F /* Extension+EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262C68F42DFDC7710025A57F /* Extension+EnvironmentValues.swift */; };
 		262E4E112DFEA0680001E1C0 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E4E102DFEA05B0001E1C0 /* Extension+Double.swift */; };
 		262E4E132DFEC01C0001E1C0 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */; };
 		262E4E152DFEC0FD0001E1C0 /* Extension+URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */; };
@@ -27,9 +24,8 @@
 		26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26566EE22E51838100959D5E /* ProductModel.xcdatamodeld */; };
 		26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26566EEB2E51F53800959D5E /* LocalProductManager.swift */; };
 		266E23A22DF9D18500D79B04 /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A02DF9D18500D79B04 /* RoutingView.swift */; };
-		266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */; };
+		266E23A32DF9D18500D79B04 /* Valor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266E23A12DF9D18500D79B04 /* Valor.swift */; };
 		266E23A52DF9D18500D79B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266E239F2DF9D18500D79B04 /* Assets.xcassets */; };
-		26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE72E57758200C1AE4A /* ImageService.swift */; };
 		26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B31BE92E577CB300C1AE4A /* Currency.swift */; };
 		26C1FA642E5DB9AF00E9995A /* DashesLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA632E5DB9AF00E9995A /* DashesLine.swift */; };
 		26C1FA682E5EF6F600E9995A /* StatefulPreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FA672E5EF6F600E9995A /* StatefulPreviewWrapper.swift */; };
@@ -42,6 +38,8 @@
 		26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */; };
 		26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC0A2E60C37200E9995A /* URLProducts.swift */; };
 		26C3F3692EBAF64D003EAEC8 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */; };
+		26D59FA22EC640FD00FD16E5 /* ScreenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59FA02EC640FD00FD16E5 /* ScreenApp.swift */; };
+		26D59FA42EC645EA00FD16E5 /* StatePricesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59FA32EC645EA00FD16E5 /* StatePricesView.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
 		26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E32DFAB602004ED717 /* Extension+Font.swift */; };
 		26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DBD6E52DFABAA9004ED717 /* Extension+Color.swift */; };
@@ -64,10 +62,7 @@
 /* Begin PBXFileReference section */
 		260F14782EAA8E1800870BE8 /* LocalProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProduct.swift; sourceTree = "<group>"; };
 		262C687A2DFD49F50025A57F /* RemoteProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProductManager.swift; sourceTree = "<group>"; };
-		262C687D2DFD7BE20025A57F /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		262C68D62DFD93A90025A57F /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		262C68F02DFDC0C30025A57F /* PriceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceSummaryView.swift; sourceTree = "<group>"; };
-		262C68F42DFDC7710025A57F /* Extension+EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+EnvironmentValues.swift"; sourceTree = "<group>"; };
 		262E4E102DFEA05B0001E1C0 /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		262E4E122DFEC01C0001E1C0 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+URLResponse.swift"; sourceTree = "<group>"; };
@@ -84,8 +79,7 @@
 		266E23832DF9D12B00D79B04 /* Valor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266E239F2DF9D18500D79B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266E23A02DF9D18500D79B04 /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
-		266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValorIOSApp.swift; sourceTree = "<group>"; };
-		26B31BE72E57758200C1AE4A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		266E23A12DF9D18500D79B04 /* Valor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valor.swift; sourceTree = "<group>"; };
 		26B31BE92E577CB300C1AE4A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		26C1FA632E5DB9AF00E9995A /* DashesLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashesLine.swift; sourceTree = "<group>"; };
 		26C1FA672E5EF6F600E9995A /* StatefulPreviewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewWrapper.swift; sourceTree = "<group>"; };
@@ -98,6 +92,8 @@
 		26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProducts.swift; sourceTree = "<group>"; };
 		26C1FC0A2E60C37200E9995A /* URLProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProducts.swift; sourceTree = "<group>"; };
 		26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		26D59FA02EC640FD00FD16E5 /* ScreenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenApp.swift; sourceTree = "<group>"; };
+		26D59FA32EC645EA00FD16E5 /* StatePricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePricesView.swift; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
 		26DBD6E22DFAB576004ED717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26DBD6E32DFAB602004ED717 /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
@@ -148,23 +144,6 @@
 				26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		262C687C2DFD7BC30025A57F /* DI */ = {
-			isa = PBXGroup;
-			children = (
-				262C687D2DFD7BE20025A57F /* AppDependencies.swift */,
-			);
-			path = DI;
-			sourceTree = "<group>";
-		};
-		262C68D02DFD90A80025A57F /* ImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				26B31BE72E57758200C1AE4A /* ImageService.swift */,
-				262C68D62DFD93A90025A57F /* RemoteImage.swift */,
-			);
-			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 		262E4E1E2DFEFBEA0001E1C0 /* RoutingView */ = {
@@ -222,7 +201,6 @@
 			children = (
 				26DBD6E52DFABAA9004ED717 /* Extension+Color.swift */,
 				262E4E102DFEA05B0001E1C0 /* Extension+Double.swift */,
-				262C68F42DFDC7710025A57F /* Extension+EnvironmentValues.swift */,
 				26DBD6E32DFAB602004ED717 /* Extension+Font.swift */,
 				262E4E1A2DFEE96F0001E1C0 /* Extension+Product.swift */,
 				262E4E1C2DFEFB050001E1C0 /* Extension+ProductManager.swift */,
@@ -266,8 +244,6 @@
 				26DBD6E22DFAB576004ED717 /* Info.plist */,
 				266E23AA2DF9D22C00D79B04 /* App */,
 				26DBD6FC2DFB3A51004ED717 /* Router */,
-				262C687C2DFD7BC30025A57F /* DI */,
-				262C68D02DFD90A80025A57F /* ImageLoader */,
 				262C68792DFD49D10025A57F /* Managers */,
 				266E23AB2DF9D24100D79B04 /* Views */,
 				26DBD6EA2DFACBA1004ED717 /* Components */,
@@ -276,6 +252,7 @@
 				264D211A2DF9DBFB00F0A179 /* Extension */,
 				26566EE12E5182A800959D5E /* PersistentData */,
 				26DBD6E12DFAB53B004ED717 /* CustomFonts */,
+				26D59FA12EC640FD00FD16E5 /* Helper */,
 				26DBD6F82DFAEE6A004ED717 /* MOC */,
 				266E239F2DF9D18500D79B04 /* Assets.xcassets */,
 				266E23A82DF9D21400D79B04 /* Preview Content */,
@@ -286,7 +263,7 @@
 		266E23AA2DF9D22C00D79B04 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				266E23A12DF9D18500D79B04 /* ValorIOSApp.swift */,
+				266E23A12DF9D18500D79B04 /* Valor.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -319,6 +296,14 @@
 				26C1FC022E6004EA00E9995A /* LocalizeRouting.swift */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		26D59FA12EC640FD00FD16E5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				26D59FA02EC640FD00FD16E5 /* ScreenApp.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		26DBD6E12DFAB53B004ED717 /* CustomFonts */ = {
@@ -370,6 +355,7 @@
 			children = (
 				26DBD6FD2DFB3A67004ED717 /* Router.swift */,
 				26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */,
+				26D59FA32EC645EA00FD16E5 /* StatePricesView.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -466,6 +452,7 @@
 				26EE67B52E581DD300BDA0F1 /* PasteboardManager.swift in Sources */,
 				262E4E1D2DFEFB050001E1C0 /* Extension+ProductManager.swift in Sources */,
 				262E4E152DFEC0FD0001E1C0 /* Extension+URLResponse.swift in Sources */,
+				26D59FA42EC645EA00FD16E5 /* StatePricesView.swift in Sources */,
 				262E4E112DFEA0680001E1C0 /* Extension+Double.swift in Sources */,
 				26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */,
 				264D211E2DF9E58B00F0A179 /* LoadingCircleView.swift in Sources */,
@@ -474,7 +461,6 @@
 				262C68F12DFDC0C50025A57F /* PriceSummaryView.swift in Sources */,
 				266E23A22DF9D18500D79B04 /* RoutingView.swift in Sources */,
 				262E4E192DFED6B70001E1C0 /* ToastView.swift in Sources */,
-				262C68D72DFD93A90025A57F /* RemoteImage.swift in Sources */,
 				264D21192DF9D63200F0A179 /* PricesAndDiscountsView.swift in Sources */,
 				26EE67B12E58155400BDA0F1 /* Extension+UISegmentedControl.swift in Sources */,
 				26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */,
@@ -483,16 +469,14 @@
 				264D211C2DF9DC2600F0A179 /* CustomImage.swift in Sources */,
 				26C1FC032E6004EA00E9995A /* LocalizeRouting.swift in Sources */,
 				26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */,
-				266E23A32DF9D18500D79B04 /* ValorIOSApp.swift in Sources */,
+				266E23A32DF9D18500D79B04 /* Valor.swift in Sources */,
 				26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */,
 				26C1FA732E5F6DF900E9995A /* Extension+Text.swift in Sources */,
-				262C68F52DFDC7710025A57F /* Extension+EnvironmentValues.swift in Sources */,
 				262E4E212DFEFC1C0001E1C0 /* ProductViewModel.swift in Sources */,
 				260F14792EAA8E1800870BE8 /* LocalProduct.swift in Sources */,
 				26DBD6E62DFABAA9004ED717 /* Extension+Color.swift in Sources */,
 				26DBD6F12DFACE5D004ED717 /* ProductsResponse.swift in Sources */,
 				26EE67B72E5849A200BDA0F1 /* StickyHeader.swift in Sources */,
-				262C687E2DFD7BE20025A57F /* AppDependencies.swift in Sources */,
 				2632DA732E55CC9A0081D3D8 /* Extension+UINavigationBar.swift in Sources */,
 				26DBD6F52DFAE881004ED717 /* ProductsView.swift in Sources */,
 				262E4E132DFEC01C0001E1C0 /* NetworkMonitor.swift in Sources */,
@@ -500,7 +484,6 @@
 				26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */,
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
 				26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */,
-				26B31BE82E57758200C1AE4A /* ImageService.swift in Sources */,
 				26C3F3692EBAF64D003EAEC8 /* FileManagerService.swift in Sources */,
 				26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */,
 				26DBD6FA2DFAF2E4004ED717 /* ProductCardView.swift in Sources */,
@@ -508,6 +491,7 @@
 				26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */,
 				262E4E1B2DFEE96F0001E1C0 /* Extension+Product.swift in Sources */,
 				26DBD6F72DFAEE65004ED717 /* MocData.swift in Sources */,
+				26D59FA22EC640FD00FD16E5 /* ScreenApp.swift in Sources */,
 				26EE67BE2E58923900BDA0F1 /* PrimaryButton.swift in Sources */,
 				26EE67BC2E58684000BDA0F1 /* PricesAndDiscountsViewModel.swift in Sources */,
 			);

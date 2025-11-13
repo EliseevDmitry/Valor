@@ -1,6 +1,6 @@
 //
 //  Extension+Font.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //

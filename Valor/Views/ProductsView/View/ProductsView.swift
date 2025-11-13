@@ -1,6 +1,6 @@
 //
 //  ProductsView.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //
@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct ProductsView: View {
-    @EnvironmentObject
-    var router: Router
-    @StateObject
-    private var viewModel: ProductViewModel = ProductViewModel(selectedSegment: .one)
+    @EnvironmentObject var router: Router
+    @StateObject private var viewModel: ProductViewModel = ProductViewModel(selectedSegment: .one)
     var body: some View {
-        GeometryReader{ geometry in
+        
             ScrollView {
                 LazyVStack(pinnedViews: [.sectionHeaders]){
                     Section(header: StickyHeader(
@@ -29,11 +27,11 @@ struct ProductsView: View {
                 }
                 .confirmationDialog("", isPresented: $viewModel.showDialog, titleVisibility: .hidden) {copyIDDialog}
             }
-            .environment(\.screenWidth, geometry.size.width)
+            
             .overlay(
                 toastView
             )
-        }
+
         .background(Color.vlColor.background)
         .dynamicTypeSize(.xLarge)
         .onAppear{

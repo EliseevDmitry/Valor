@@ -1,6 +1,6 @@
 //
 //  MocData.swift
-//  ValorIOS
+//  Valor
 //
 //  Created by Dmitriy Eliseev on 12.06.2025.
 //
@@ -18,5 +18,4 @@ struct MocData {
         thumbnail: "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
         currency: .USD
     )
-    static let screenWidth: CGFloat = 375
 }
