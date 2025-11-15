@@ -38,6 +38,10 @@
 		26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */; };
 		26C1FC0B2E60C37200E9995A /* URLProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C1FC0A2E60C37200E9995A /* URLProducts.swift */; };
 		26C3F3692EBAF64D003EAEC8 /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */; };
+		26D3F6AD2EC8ADCC0059E66F /* CustomConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F6AC2EC8ADCC0059E66F /* CustomConfirmationDialog.swift */; };
+		26D3F6AF2EC8E3040059E66F /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F6AE2EC8E3040059E66F /* Extension+View.swift */; };
+		26D3F6B12EC8E32A0059E66F /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F6B02EC8E32A0059E66F /* RoundedCornerShape.swift */; };
+		26D3F6B42EC8E37F0059E66F /* DialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D3F6B32EC8E37F0059E66F /* DialogButton.swift */; };
 		26D59FA22EC640FD00FD16E5 /* ScreenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59FA02EC640FD00FD16E5 /* ScreenApp.swift */; };
 		26D59FA42EC645EA00FD16E5 /* StatePricesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D59FA32EC645EA00FD16E5 /* StatePricesView.swift */; };
 		26DBD6E02DFAB52F004ED717 /* ABeeZee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */; };
@@ -53,7 +57,7 @@
 		26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */; };
 		26EE67B52E581DD300BDA0F1 /* PasteboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */; };
 		26EE67B72E5849A200BDA0F1 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */; };
-		26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */; };
+		26EE67B92E58526400BDA0F1 /* ConfirmationDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67B82E58526400BDA0F1 /* ConfirmationDialogView.swift */; };
 		26EE67BC2E58684000BDA0F1 /* PricesAndDiscountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67BB2E58683F00BDA0F1 /* PricesAndDiscountsViewModel.swift */; };
 		26EE67BE2E58923900BDA0F1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */; };
 		26EF71F42E534C2700D2A6D1 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */; };
@@ -92,6 +96,10 @@
 		26C1FC062E6006DE00E9995A /* LocalizeProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeProducts.swift; sourceTree = "<group>"; };
 		26C1FC0A2E60C37200E9995A /* URLProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProducts.swift; sourceTree = "<group>"; };
 		26C3F3682EBAF64D003EAEC8 /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		26D3F6AC2EC8ADCC0059E66F /* CustomConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConfirmationDialog.swift; sourceTree = "<group>"; };
+		26D3F6AE2EC8E3040059E66F /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		26D3F6B02EC8E32A0059E66F /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
+		26D3F6B32EC8E37F0059E66F /* DialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogButton.swift; sourceTree = "<group>"; };
 		26D59FA02EC640FD00FD16E5 /* ScreenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenApp.swift; sourceTree = "<group>"; };
 		26D59FA32EC645EA00FD16E5 /* StatePricesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatePricesView.swift; sourceTree = "<group>"; };
 		26DBD6DF2DFAB52F004ED717 /* ABeeZee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ABeeZee-Regular.ttf"; sourceTree = "<group>"; };
@@ -108,7 +116,7 @@
 		26EE67B22E58171B00BDA0F1 /* NavigationRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutes.swift; sourceTree = "<group>"; };
 		26EE67B42E581DD300BDA0F1 /* PasteboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardManager.swift; sourceTree = "<group>"; };
 		26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
-		26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СonfirmationDialogView.swift"; sourceTree = "<group>"; };
+		26EE67B82E58526400BDA0F1 /* ConfirmationDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogView.swift; sourceTree = "<group>"; };
 		26EE67BB2E58683F00BDA0F1 /* PricesAndDiscountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesAndDiscountsViewModel.swift; sourceTree = "<group>"; };
 		26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		26EF71F32E534C2700D2A6D1 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 				2632DA722E55CC9A0081D3D8 /* Extension+UINavigationBar.swift */,
 				26EE67B02E58155400BDA0F1 /* Extension+UISegmentedControl.swift */,
 				262E4E142DFEC0EA0001E1C0 /* Extension+URLResponse.swift */,
+				26D3F6AE2EC8E3040059E66F /* Extension+View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -298,6 +307,16 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		26D3F6B22EC8E3320059E66F /* CustomConfirmationDialog */ = {
+			isa = PBXGroup;
+			children = (
+				26D3F6AC2EC8ADCC0059E66F /* CustomConfirmationDialog.swift */,
+				26D3F6B02EC8E32A0059E66F /* RoundedCornerShape.swift */,
+				26D3F6B32EC8E37F0059E66F /* DialogButton.swift */,
+			);
+			path = CustomConfirmationDialog;
+			sourceTree = "<group>";
+		};
 		26D59FA12EC640FD00FD16E5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,12 +337,13 @@
 		26DBD6EA2DFACBA1004ED717 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				26D3F6B22EC8E3320059E66F /* CustomConfirmationDialog */,
 				262C68F02DFDC0C30025A57F /* PriceSummaryView.swift */,
 				264D211D2DF9E58B00F0A179 /* LoadingCircleView.swift */,
 				26DBD6F92DFAF2E4004ED717 /* ProductCardView.swift */,
 				262E4E182DFED6B70001E1C0 /* ToastView.swift */,
 				26EE67B62E5849A200BDA0F1 /* StickyHeader.swift */,
-				26EE67B82E58526400BDA0F1 /* СonfirmationDialogView.swift */,
+				26EE67B82E58526400BDA0F1 /* ConfirmationDialogView.swift */,
 				26EE67BD2E58923900BDA0F1 /* PrimaryButton.swift */,
 				26C1FA632E5DB9AF00E9995A /* DashesLine.swift */,
 			);
@@ -455,6 +475,7 @@
 				26D59FA42EC645EA00FD16E5 /* StatePricesView.swift in Sources */,
 				262E4E112DFEA0680001E1C0 /* Extension+Double.swift in Sources */,
 				26EE67B32E58171B00BDA0F1 /* NavigationRoutes.swift in Sources */,
+				26D3F6B12EC8E32A0059E66F /* RoundedCornerShape.swift in Sources */,
 				264D211E2DF9E58B00F0A179 /* LoadingCircleView.swift in Sources */,
 				26DBD6E42DFAB602004ED717 /* Extension+Font.swift in Sources */,
 				26C1FA642E5DB9AF00E9995A /* DashesLine.swift in Sources */,
@@ -464,11 +485,12 @@
 				264D21192DF9D63200F0A179 /* PricesAndDiscountsView.swift in Sources */,
 				26EE67B12E58155400BDA0F1 /* Extension+UISegmentedControl.swift in Sources */,
 				26C1FC072E6006DE00E9995A /* LocalizeProducts.swift in Sources */,
+				26D3F6B42EC8E37F0059E66F /* DialogButton.swift in Sources */,
 				26DBD6FE2DFB3A67004ED717 /* Router.swift in Sources */,
 				26C1FC052E6006C000E9995A /* LocalizePrices.swift in Sources */,
 				264D211C2DF9DC2600F0A179 /* CustomImage.swift in Sources */,
 				26C1FC032E6004EA00E9995A /* LocalizeRouting.swift in Sources */,
-				26EE67B92E58526400BDA0F1 /* СonfirmationDialogView.swift in Sources */,
+				26EE67B92E58526400BDA0F1 /* ConfirmationDialogView.swift in Sources */,
 				266E23A32DF9D18500D79B04 /* Valor.swift in Sources */,
 				26B31BEA2E577CB300C1AE4A /* Currency.swift in Sources */,
 				26C1FA732E5F6DF900E9995A /* Extension+Text.swift in Sources */,
@@ -480,7 +502,9 @@
 				2632DA732E55CC9A0081D3D8 /* Extension+UINavigationBar.swift in Sources */,
 				26DBD6F52DFAE881004ED717 /* ProductsView.swift in Sources */,
 				262E4E132DFEC01C0001E1C0 /* NetworkMonitor.swift in Sources */,
+				26D3F6AD2EC8ADCC0059E66F /* CustomConfirmationDialog.swift in Sources */,
 				26C1FA682E5EF6F600E9995A /* StatefulPreviewWrapper.swift in Sources */,
+				26D3F6AF2EC8E3040059E66F /* Extension+View.swift in Sources */,
 				26566EE42E51838100959D5E /* ProductModel.xcdatamodeld in Sources */,
 				26566EEC2E51F53800959D5E /* LocalProductManager.swift in Sources */,
 				26C1FA712E5F6D0400E9995A /* LocalizeProductCard.swift in Sources */,
@@ -640,7 +664,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -673,7 +697,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

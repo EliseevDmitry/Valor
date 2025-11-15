@@ -7,6 +7,9 @@
     "%@ " : {
 
     },
+    "Cancel" : {
+
+    },
     "copyVlItem" : {
       "extractionState" : "manual",
       "localizations" : {

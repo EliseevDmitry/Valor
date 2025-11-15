@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A SwiftUI component representing the content of a confirmationDialog with buttons for copying SKUs and cancelling.
 /// Extracted into a separate component to facilitate future feature expansion and adding new menu items.
-struct СonfirmationDialogView: View {
+struct ConfirmationDialogView: View {
     let copyGlobalSKU: () -> Void
     let copyLocalSKU: () -> Void
     var body: some View {
@@ -24,5 +24,5 @@ struct СonfirmationDialogView: View {
 }
 
 #Preview {
-    СonfirmationDialogView(copyGlobalSKU: {}, copyLocalSKU: {})
+    ConfirmationDialogView(copyGlobalSKU: {}, copyLocalSKU: {})
 }

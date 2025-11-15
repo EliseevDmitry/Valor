@@ -7,56 +7,77 @@
 
 import SwiftUI
 
+
 struct ProductsView: View {
     @EnvironmentObject var router: Router
-    @StateObject private var viewModel: ProductViewModel = ProductViewModel(selectedSegment: .one)
+    @StateObject
+    private var viewModel: ProductViewModel = ProductViewModel(selectedSegment: .one)
     var body: some View {
-        
-            ScrollView {
-                LazyVStack(pinnedViews: [.sectionHeaders]){
-                    Section(header: StickyHeader(
-                        selectedSegment: $viewModel.selectedSegment
-                    ) { newSegment in
-                        viewModel.segmentChanged(
-                            to: newSegment,
-                            router: router
-                        )
-                    }) {
-                        bodyProducts
-                    }
+        ScrollView {
+            LazyVStack(pinnedViews: [.sectionHeaders]){
+                Section(header: StickyHeader(
+                    selectedSegment: $viewModel.selectedSegment
+                ) { newSegment in
+                    viewModel.segmentChanged(
+                        to: newSegment,
+                        router: router
+                    )
+                }) {
+                    bodyProducts
                 }
-                .confirmationDialog("", isPresented: $viewModel.showDialog, titleVisibility: .hidden) {copyIDDialog}
+                
             }
-            
-            .overlay(
-                toastView
-            )
-
+        }
+        
+        .overlay(
+            toastView
+        )
         .background(Color.vlColor.background)
         .dynamicTypeSize(.xLarge)
         .onAppear{
-           viewModel.getProducts()
-           //viewModel.delete()
+            viewModel.getProducts()
+            //viewModel.delete()
         }
+        .sheet(isPresented: $viewModel.showDialog) {
+            CustomConfirmationDialog()
+                .presentationDetents([.height(ScreenApp.height/5)])
+            
+        }
+        
+    }
+}
+
+
+
+extension ProductsView {
+    enum Const {
+        static let productTopPadding: CGFloat = 5
+        static let dialogCornerRadius: CGFloat = 16
+        static let dialogVerticalPadding: CGFloat = 18
     }
     
-    //scroll products UI
+    // MARK: - Scroll products UI
+    
     private var bodyProducts: some View {
         ForEach(
             viewModel.products,
             id: \.id
-        ) {product in
-            ProductCardView(product: product, image: viewModel.images[product.id])
-                .padding(.top, 5)
-                .onTapGesture {
-                    viewModel.select(product)
-                }
+        ) { product in
+            ProductCardView(
+                product: product,
+                image: viewModel.images[product.id]
+            )
+            .padding(.top, Const.productTopPadding)
+            .onTapGesture {
+                viewModel.select(product)
+            }
         }
     }
     
-    //confirmationDialog UI
+    // MARK: - ConfirmationDialog UI
+    
     private var copyIDDialog: some View {
-        СonfirmationDialogView(
+        ConfirmationDialogView(
             copyGlobalSKU: {
                 viewModel.copyID(id: viewModel.selectedProduct?.globalSKU)
             },
@@ -66,18 +87,41 @@ struct ProductsView: View {
         )
     }
     
-    //отображения сообщения о скопированных данных
+    // MARK: - Toast
+    
+    @ViewBuilder
     private var toastView: some View {
-        Group {
-            if viewModel.showToast {
-                ToastView(
-                    showToast: $viewModel.showToast,
-                    sku: viewModel.showID()
-                )
-            }
+        if viewModel.showToast {
+            ToastView(
+                showToast: $viewModel.showToast,
+                sku: viewModel.showID()
+            )
         }
-    } 
+    }
+    
+    //    @ViewBuilder
+    //    private var confirmationDialog: some View {
+    //        if #available(iOS 18.0, *) {
+    //
+    //                .sheet(isPresented: $viewModel.showDialog) {
+    //                    CustomConfirmationDialog()
+    //                        .presentationDetents([.height(ScreenApp.height/5)])
+    //                }
+    //
+    //        } else {
+    //            .confirmationDialog("", isPresented: $viewModel.showDialog, titleVisibility: .hidden) {
+    //                copyIDDialog
+    //            }
+    //        }
+    //    }
+    
+    
+    
 }
+
+
+
+
 
 #Preview {
     NavigationView(content: {
